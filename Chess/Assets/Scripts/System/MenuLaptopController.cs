@@ -36,7 +36,7 @@ public class MenuLaptopController : MenuController
 
         startGameText.GetComponentInChildren<TMP_InputField>().text = "";
         startGameText.GetComponentInChildren<TMP_InputField>()
-                    .placeholder.GetComponent<TMP_Text>().text = "¬вед≥ть \"black\" €кщо так";
+                    .placeholder.GetComponent<TMP_Text>().text = "¬вед≥ть \"black\" або \"white\"";
     }
     public void LoadGame()
     {
