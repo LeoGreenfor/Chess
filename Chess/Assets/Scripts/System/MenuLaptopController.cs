@@ -35,8 +35,8 @@ public class MenuLaptopController : MenuController
         }
 
         startGameText.GetComponentInChildren<TMP_InputField>().text = "";
-        startGameText.GetComponentInChildren<TMP_InputField>()
-                    .placeholder.GetComponent<TMP_Text>().text = "¬вед≥ть \"black\" або \"white\"";
+        /*startGameText.GetComponentInChildren<TMP_InputField>()
+                    .placeholder.GetComponent<TMP_Text>().text = "¬вед≥ть \"black\" або \"white\"";*/
     }
     public void LoadGame()
     {
@@ -75,7 +75,7 @@ public class MenuLaptopController : MenuController
     private void SetText(int index)
     {
         menuText[index].GetComponentInChildren<TMP_InputField>().text = "";
-        menuText[index].GetComponentInChildren<TMP_InputField>()
-                    .placeholder.GetComponent<TMP_Text>().text = "¬вед≥ть \"yes\" €кщо так";
+        /*menuText[index].GetComponentInChildren<TMP_InputField>()
+                    .placeholder.GetComponent<TMP_Text>().text = "¬вед≥ть \"yes\" €кщо так";*/
     }
 }
