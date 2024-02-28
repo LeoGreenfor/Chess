@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField]
-    private PauseController pauseController;
+    //private PauseController pauseController;
     public bool canMove;
 
     [Header("Moving")]
@@ -24,7 +24,7 @@ public class PlayerMovementController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX;
 
-    public Animator animator;
+    //public Animator animator;
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            pauseController.PauseGame();
+            //pauseController.PauseGame();
         }
         if (!PauseController.gameIsPaused)
         {
@@ -124,13 +124,13 @@ public class PlayerMovementController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookDensity, 0);
         }
 
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        /*if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             animator.SetInteger("State", 1);
         }
         else
         {
             animator.SetInteger("State", 0);
-        }
+        }*/
     }
 }
