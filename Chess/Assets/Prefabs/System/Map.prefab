@@ -120,7 +120,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8056059242703508433}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7503655340346240860}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 102900000, guid: dcd38e4b64934cc4484be06ec303efd0,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3532800257509917674
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +254,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1958936412798899595}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7503655340346240860}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 102900000, guid: c1cba1965d201a84caa4a06d491ec72e,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5687516577669033086
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +388,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2858695337750942419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7503655340346240860}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 102900000, guid: e64aa76410761804789e9705304e9f70,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6284349053471396352
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +661,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9161003432701540635}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7503655340346240860}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 102900000, guid: 62df1252ad32cec47905c68672f5dd2a,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8118940142801898116
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,4 +836,17 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7881054507263052667}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7503655340346240860}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 102900000, guid: c346d7e2ed2fc224d96c6be12508a0e0,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

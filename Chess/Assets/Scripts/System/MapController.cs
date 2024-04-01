@@ -12,19 +12,25 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < scenes.Length; i++)
+        /*for (int i = 0; i < mapLevelButton.Length; i++)
         {
-            Debug.LogError("a");
-            if (mapLevelButton[i] == null) Debug.LogError("button is null");
-            if (scenes[i] == null) Debug.LogError("scene is null");
-            //Debug.Log($"{mapLevelButton[i]}, {mapLevelButton[i].onClick}, {scenes[i]}");
+            Debug.LogError(i);
             mapLevelButton[i].onClick.AddListener(() => LoadLevel(scenes[i]));
-        }
+        }*/
     }
 
-    private void LoadLevel(SceneAsset scene)
+    public void LoadLevel(SceneAsset scene)
     {
         Debug.LogError("a");
         SceneManager.LoadScene(scene.name);
+    }
+
+    private void OnDestroy()
+    {
+        /*for (int i = 0; i < mapLevelButton.Length; i++)
+        {
+            Debug.LogError(i);
+            mapLevelButton[i].onClick.RemoveListener(() => LoadLevel(scenes[i]));
+        }*/
     }
 }
