@@ -2,11 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
 {
     public static bool gameIsPaused;
+
+    [SerializeField] private Button _pauseButton;
+    [SerializeField] private Button _resumeButton;
+    [SerializeField] private Button _goToMenuButton;
     //[SerializeField] private UIController UIController;
+
+    private void Start()
+    {
+        _pauseButton.onClick.AddListener(PauseGame);
+        _resumeButton.onClick.AddListener(ResumeGame);
+        _goToMenuButton.onClick.AddListener(GoToMenu);
+    }
 
     public void PauseGame()
     {

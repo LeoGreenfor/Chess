@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField]
-    //private PauseController pauseController;
+    private PauseController pauseController;
     public bool canMove;
 
     [Header("Moving")]
@@ -38,7 +38,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            //pauseController.PauseGame();
+            pauseController.PauseGame();
         }
         if (!PauseController.gameIsPaused)
         {
