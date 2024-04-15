@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CreatesTags:
-  - room
+  - corridor 2
   - level end
 --- !u!1 &862896854078573188
 GameObject:
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 604230003132716849}
   - component: {fileID: 5512357670927176917}
   m_Layer: 0
-  m_Name: Section 2
+  m_Name: Corridor 1
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -248,13 +248,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tags:
-  - corridor
-  - room
+  - corridor 1
   CreatesTags:
-  - corridor
-  - room
-  - treasure
   - level end
+  - corridor 2
   Exits: {fileID: 8695841557739317041}
   Bounds: {fileID: 5726012082559340953}
   DeadEndChance: 0
@@ -401,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CreatesTags:
-  - room
+  - corridor 5
   - level end
 --- !u!1 &9061747353309934362
 GameObject:

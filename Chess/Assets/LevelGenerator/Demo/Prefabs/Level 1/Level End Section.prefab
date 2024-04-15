@@ -380,7 +380,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tags:
-  - treasure
   - level end
   CreatesTags: []
   Exits: {fileID: 3403843321576069323}

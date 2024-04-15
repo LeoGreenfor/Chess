@@ -107,6 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2416223117267775815}
+  - component: {fileID: 6375015152896819036}
   m_Layer: 0
   m_Name: Exit 1
   m_TagString: Untagged
@@ -129,6 +130,20 @@ Transform:
   m_Father: {fileID: 6106267966999262439}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6375015152896819036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454896386148413844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea2fa5b9dd8bd64982ca6443f3a6e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CreatesTags:
+  - corridor 4
 --- !u!1 &5836749440221707776
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4255813024305794348}
+  - component: {fileID: 7645352858974499499}
   m_Layer: 0
   m_Name: Exit 1 (2)
   m_TagString: Untagged
@@ -207,6 +223,20 @@ Transform:
   m_Father: {fileID: 6106267966999262439}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &7645352858974499499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710735807394930701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea2fa5b9dd8bd64982ca6443f3a6e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CreatesTags:
+  - corridor 5
 --- !u!1 &7732454772224199916
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9197800829412285419}
+  - component: {fileID: 7178419089225391933}
   m_Layer: 0
   m_Name: Exit 1 (1)
   m_TagString: Untagged
@@ -238,6 +269,20 @@ Transform:
   m_Father: {fileID: 6106267966999262439}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &7178419089225391933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732454772224199916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea2fa5b9dd8bd64982ca6443f3a6e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CreatesTags:
+  - corridor 5
 --- !u!1 &8057709168827544775
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +294,7 @@ GameObject:
   - component: {fileID: 4915537875845779708}
   - component: {fileID: 11835433341965080}
   m_Layer: 0
-  m_Name: Corridor1 1
+  m_Name: Corridor 3
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -286,12 +331,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tags:
-  - corridor
+  - corridor 3
   CreatesTags:
-  - room
   - level end
-  - spawn
-  - corridor
+  - corridor 4
   Exits: {fileID: 3816815562009239804}
   Bounds: {fileID: 226088168344294996}
   DeadEndChance: 5
