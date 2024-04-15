@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7916763290553480842}
-  - component: {fileID: 4374187063989733859}
   m_Layer: 0
   m_Name: Exit 1
   m_TagString: Untagged
@@ -32,21 +31,6 @@ Transform:
   m_Father: {fileID: 1794695472775541546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4374187063989733859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569273277616223833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ea2fa5b9dd8bd64982ca6443f3a6e7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CreatesTags:
-  - corridor 3
-  - level end
 --- !u!1 &966705201711584042
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,11 +219,11 @@ MonoBehaviour:
   Tags:
   - corridor 2
   CreatesTags:
-  - level end
   - corridor 3
+  - corridor 6
   Exits: {fileID: 8695841557739317041}
   Bounds: {fileID: 5726012082559340953}
-  DeadEndChance: 0
+  DeadEndChance: 1
 --- !u!1 &2644683061652270795
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +437,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 939510889960881099}
-  - component: {fileID: 568889648080479471}
   m_Layer: 0
   m_Name: Exit 2
   m_TagString: Untagged
@@ -476,21 +459,6 @@ Transform:
   m_Father: {fileID: 1794695472775541546}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &568889648080479471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8288777007735728553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ea2fa5b9dd8bd64982ca6443f3a6e7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CreatesTags:
-  - corridor 5
-  - level end
 --- !u!1 &9061747353309934362
 GameObject:
   m_ObjectHideFlags: 0

@@ -371,7 +371,7 @@ MonoBehaviour:
   Tags:
   - spawn
   CreatesTags:
-  - corridor
+  - corridor 5
   Exits: {fileID: 2813634955293397055}
   Bounds: {fileID: 1213507208336664215}
   DeadEndChance: 0
