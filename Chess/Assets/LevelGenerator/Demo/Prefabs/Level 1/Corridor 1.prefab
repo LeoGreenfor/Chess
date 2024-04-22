@@ -481,6 +481,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6914144859891446548, guid: 7260cea2cdebe7b42aa736197382eeb6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1859124ad6366a499768d59090e4ee2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -565,6 +570,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: trailway_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1432469015871816636, guid: a63212f11356af64bb8604c90dbab474,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1859124ad6366a499768d59090e4ee2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

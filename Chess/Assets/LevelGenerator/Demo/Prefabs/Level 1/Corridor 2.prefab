@@ -367,6 +367,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: trailway_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1432469015871816636, guid: a63212f11356af64bb8604c90dbab474,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1859124ad6366a499768d59090e4ee2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -386,6 +391,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8486454222144273547}
     m_Modifications:
+    - target: {fileID: 7713171081016705974, guid: 81c7dfdea6864b147b2483f406e0f41f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1859124ad6366a499768d59090e4ee2, type: 2}
     - target: {fileID: 8073349168388547171, guid: 81c7dfdea6864b147b2483f406e0f41f,
         type: 3}
       propertyPath: m_Name
