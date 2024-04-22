@@ -2,17 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChessPiece : MonoBehaviour
+public class ChessPiece : MonoBehaviour, IEntity
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Attack()
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Create()
     {
-        
+        throw new System.NotImplementedException();
+    }
+
+    public void Destroy()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Kill()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Retreat()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Spawn()
+    {
+        throw new System.NotImplementedException();
     }
 }

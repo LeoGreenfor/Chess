@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IEntity : MonoBehaviour
+public interface IEntity
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Create();
+    void Destroy();
+    void Spawn();
+    void Kill();
+    void Attack();
+    void Retreat();
 }
