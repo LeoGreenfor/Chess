@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IEntity
 {
+    private static Player _instance;
+
+    public static Player Instance()
+    {
+        if (_instance == null)
+            _instance = new Player();
+
+        return _instance;
+    }
+
     public void Attack()
     {
         throw new System.NotImplementedException();
