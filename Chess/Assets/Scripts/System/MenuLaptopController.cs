@@ -8,21 +8,25 @@ using UnityEngine.SceneManagement;
 public class MenuLaptopController : MenuController
 {
     public FakeTerminal terminal;
-    private bool isTerminalTurnOn;
+    public float delaySeconds;
 
     private void OnMouseDown()
     {
-        isTerminalTurnOn = !isTerminalTurnOn;
-
-        terminal.TurnOn(isTerminalTurnOn);
+        terminal.TurnOn(true);
     }
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadingCooldown(1));
     }
     public void LoadGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadingCooldown(1));
+    }
+
+    private IEnumerator LoadingCooldown(int sceneIndex)
+    {
+        yield return new WaitForSeconds(delaySeconds);
+        SceneManager.LoadScene(sceneIndex);
     }
 }

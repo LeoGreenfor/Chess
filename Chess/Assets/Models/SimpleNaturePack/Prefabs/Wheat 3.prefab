@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5bd0fc3de5978d48a5f70b3eb893906, type: 2}
+  - {fileID: 2100000, guid: 0cdb10b8856712a45b76b245524fa104, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5bd0fc3de5978d48a5f70b3eb893906, type: 2}
+  - {fileID: 2100000, guid: 0cdb10b8856712a45b76b245524fa104, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 8903058273634951509}
   - component: {fileID: 6757531004235149912}
   m_Layer: 0
-  m_Name: Wheat 1
+  m_Name: Wheat 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

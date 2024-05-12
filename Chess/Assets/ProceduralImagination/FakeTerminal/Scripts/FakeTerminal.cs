@@ -139,8 +139,6 @@ public class FakeTerminal : MonoBehaviour
     private Text screen;
 
     private int actualLine;
-    //  This value goes from 0 to text_MaxStringsOnScreen - 1 (it's the list index).
-    private int fakeLine;
     //  Just esthetics. It's a sequential number shown in each line.
     private string lineIntro;
     //  This string contains the first chars of every line.
@@ -178,7 +176,6 @@ public class FakeTerminal : MonoBehaviour
         originalPassword = admin_Password;
 
         actualLine = 0;
-        fakeLine = 0;
 
         cursorVisible = false;
 
@@ -294,8 +291,9 @@ public class FakeTerminal : MonoBehaviour
         terminalIsIdling = true;
         terminalStarting = false;
         terminalIsRunning = false;
+        _isTurnOn = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
 
         if(admin_AutoLogOut)
         {
@@ -433,7 +431,6 @@ public class FakeTerminal : MonoBehaviour
                                     outputText.Add("");
 
                                     actualLine = 0;
-                                    fakeLine = -1;
                                 }
                             }
                         }
@@ -458,12 +455,6 @@ public class FakeTerminal : MonoBehaviour
                 if(!logged && admin_RequestLogin)
                 {
                     lineIntro = "Insert password: ";
-                    fakeLine = -1;
-                }
-                else
-                {
-                    fakeLine++;
-                    lineIntro = "" + fakeLine + ".  ";
                 }
 
                 AddLineToList(lineIntro);
@@ -502,7 +493,6 @@ public class FakeTerminal : MonoBehaviour
     IEnumerator TerminalStart()
     {
         outputText = new List<string>();
-        fakeLine = 0;
 
         foreach(string line in text_Intro)
         {
@@ -521,11 +511,11 @@ public class FakeTerminal : MonoBehaviour
         else if(logged && admin_RequestLogin)
         {
             PrintAccessGranted();
-            lineIntro = "" + fakeLine + ".  ";
+            lineIntro = "";
         }
         else if(!admin_RequestLogin)
         {
-            lineIntro = "" + fakeLine + ".  ";
+            lineIntro = "";
         }
 
         AddLineToList(lineIntro);
