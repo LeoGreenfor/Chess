@@ -23,9 +23,4 @@ public abstract class MenuController : MonoBehaviour
         _objOutline.enabled = true;
         _objOutline.OutlineWidth = 5;
     }
-
-    private void OnMouseDown()
-    {
-        _eventCanvas.SetActive(true);
-    }
 }

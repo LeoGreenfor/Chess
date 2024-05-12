@@ -30,8 +30,9 @@ public class FakeTerminal : MonoBehaviour
 
     [Space]
 
+    public bool isUseKeyToTurnOn;
     public KeyCode key_TurnOn;
-    public bool key_UseKeyToShutDown;
+    public bool isUseKeyToShutDown;
     public KeyCode key_ShutDown;
 
     [Space]
@@ -145,6 +146,8 @@ public class FakeTerminal : MonoBehaviour
     //  This string contains the first chars of every line.
     private string originalPassword;
 
+    private bool _isTurnOn;
+
     private bool terminalIsRunning;
     private bool terminalStarting;
     private bool terminalIsIdling;
@@ -199,10 +202,12 @@ public class FakeTerminal : MonoBehaviour
     {
         if(admin_RequestLogin)
         {
-            key_UseKeyToShutDown = true;
+            isUseKeyToShutDown = true;
         }
 
-        if(Input.GetKeyDown(key_TurnOn) && (this.transform.position - player_Camera.transform.position).magnitude < terminal_MaxActivationDistance && terminalIsIdling)
+        if (isUseKeyToTurnOn) _isTurnOn = Input.GetKeyDown(key_TurnOn);
+
+        if(_isTurnOn && (this.transform.position - player_Camera.transform.position).magnitude < terminal_MaxActivationDistance && terminalIsIdling)
         {
             StopCoroutine("TerminalIdlingCursor");
             StopCoroutine("ExitTerminalTransition");
@@ -249,7 +254,7 @@ public class FakeTerminal : MonoBehaviour
                 }
             }
 
-        if((key_UseKeyToShutDown || !logged) && Input.GetKeyDown(key_ShutDown) && terminalIsRunning)
+        if((isUseKeyToShutDown || !logged) && Input.GetKeyDown(key_ShutDown) && terminalIsRunning)
         {
             ShutdownTerminal();
         }
@@ -437,7 +442,7 @@ public class FakeTerminal : MonoBehaviour
                         {
                             if(outputText[actualLine].Length >= lineIntro.Length)
                             {
-                                if(!key_UseKeyToShutDown && outputText[actualLine].Replace("" + cursor_Char, "").Substring(lineIntro.Length) == input_Shutdown)
+                                if(!isUseKeyToShutDown && outputText[actualLine].Replace("" + cursor_Char, "").Substring(lineIntro.Length) == input_Shutdown)
                                 {
                                     printError = false;
                                     ShutdownTerminal();
@@ -629,7 +634,7 @@ public class FakeTerminal : MonoBehaviour
             AddLineToList(line);
         }
 
-        if(key_UseKeyToShutDown)
+        if(isUseKeyToShutDown)
         {
             foreach(string line in text_ShutDownKey)
             {
@@ -714,6 +719,11 @@ public class FakeTerminal : MonoBehaviour
         }
 
         return textToPrint;
+    }
+
+    public void TurnOn(bool value)
+    {
+        _isTurnOn = value;
     }
 
     [System.Serializable] 

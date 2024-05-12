@@ -7,6 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class MenuLaptopController : MenuController
 {
+    public FakeTerminal terminal;
+    private bool isTerminalTurnOn;
+
+    private void OnMouseDown()
+    {
+        isTerminalTurnOn = !isTerminalTurnOn;
+
+        terminal.TurnOn(isTerminalTurnOn);
+    }
+
     public void StartNewGame()
     {
         SceneManager.LoadScene(1);

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4834757668925876599}
   - component: {fileID: 5402595819908408728}
+  - component: {fileID: 2453271759054372815}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -27,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.4, y: 0.45000002, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8090101213781867758}
   m_RootOrder: 2
@@ -39,8 +41,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627320792964964206}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 0.035515573, b: 0, a: 1}
   m_Intensity: 5
   m_Range: 5
@@ -89,8 +92,32 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2453271759054372815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627320792964964206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &7692206079766663804
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6418460771574298403}
   - component: {fileID: 6771461198365486500}
+  - component: {fileID: 857998842960843081}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -118,6 +146,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.4, y: 0.45, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8090101213781867758}
   m_RootOrder: 1
@@ -130,8 +159,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7692206079766663804}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 0.035515573, b: 0, a: 1}
   m_Intensity: 5
   m_Range: 5
@@ -180,8 +210,32 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &857998842960843081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692206079766663804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &8090101212528704902
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +265,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8090101214214043320}
   m_RootOrder: 0
@@ -243,16 +298,18 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.6117647, b: 0, a: 0.47058824}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 01cd679a1b9ee48bf9c546f6ce2cb97e, type: 3}
-    m_FontSize: 20
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 25
+    m_MaxSize: 100
     m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -274,18 +331,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d568a2fcf6ea64b86d2bb24daed207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  custom_Functions: []
-  custom_Inputs: []
-  admin_RequestLogin: 1
-  admin_Password: 
-  admin_AutoLogOut: 1
+  custom_Functions:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: AllLightsOnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: DirectionalLightOnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  custom_Inputs:
+  - text_Input:
+    - /LIGHTS
+    - /lights
+  - text_Input:
+    - /DIRECTIONAL
+    - /directional
+  custom_Texts:
+  - text_Input:
+    - 
+    - '        The script has called the <color=red>first</color> external function'
+    - 
+  - text_Input:
+    - 
+    - '        The script has called the <color=red>second</color> external function'
+    - 
+  admin_RequestLogin: 0
+  admin_Password: FakeTerminal
+  admin_AutoLogOut: 0
   text_ForceCapsLock: 0
   key_TurnOn: 101
-  key_UseKeyToShutDown: 1
+  key_UseKeyToShutDown: 0
   key_ShutDown: 306
   terminal_PoVOffset: {x: 0, y: 0, z: 0.5}
-  terminal_ActivationTransitionSpeed: 1
-  terminal_ShutDownTransitionSpeed: 3
+  terminal_ActivationTransitionSpeed: 10
+  terminal_ShutDownTransitionSpeed: 10
   player_CharController: {fileID: 0}
   player_Camera: {fileID: 0}
   terminal_MaxActivationDistance: 3
@@ -312,6 +412,8 @@ MonoBehaviour:
   - '        Basic commands list:'
   - 
   - '                <color=white>/CLEAR</color>'
+  - '                <color=white>/LIGHTS</color>'
+  - '                <color=white>/DIRECTIONAL</color>'
   - 
   text_AccessDenied:
   - 
@@ -331,9 +433,9 @@ MonoBehaviour:
   - 
   - '                <color=white>/SHUTDOWN</color>'
   - 
-  intro_TimeToPrintLine: 0.5
+  intro_TimeToPrintLine: 0.2
   text_MaxStringsOnScreen: 27
-  text_MaxCharsInString: 200
+  text_MaxCharsInString: 45
   cursor_Char: 9608
   cursor_BlinkingTime: 0.5
 --- !u!1 &8090101213781867746
@@ -364,13 +466,14 @@ Transform:
   m_GameObject: {fileID: 8090101213781867746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 4}
-  m_LocalScale: {x: 1.5, y: 2.5, z: 0.2}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8090101214214043320}
   - {fileID: 6418460771574298403}
   - {fileID: 4834757668925876599}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8090101213781867745
 MeshFilter:
@@ -391,9 +494,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -418,6 +524,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &8090101213781867747
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -426,9 +533,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8090101213781867746}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8090101214214043324
@@ -460,6 +575,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.55}
   m_LocalScale: {x: 0.00035233656, y: 0.00036084894, z: 0.074954584}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8090101212528704903}
   m_Father: {fileID: 8090101213781867758}
@@ -467,7 +583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.2924}
+  m_AnchoredPosition: {x: -0.2, y: 0.37}
   m_SizeDelta: {x: 1607, y: 649}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8090101214214043323
@@ -487,7 +603,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -513,6 +631,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8090101214214043325
 MonoBehaviour:
   m_ObjectHideFlags: 0
