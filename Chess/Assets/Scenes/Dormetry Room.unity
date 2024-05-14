@@ -2491,6 +2491,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
+      propertyPath: LineIntro
+      value: student>
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
       propertyPath: cursor_Char
       value: 9646
       objectReference: {fileID: 0}
@@ -2521,6 +2526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
+      propertyPath: inputs_Help.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
       propertyPath: text_Help.Array.data[1]
       value: 'Basic commands list:'
       objectReference: {fileID: 0}
@@ -2542,7 +2552,7 @@ PrefabInstance:
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: text_MaxStringsOnScreen
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
@@ -2572,12 +2582,17 @@ PrefabInstance:
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: text_Intro.Array.data[2]
-      value: <i>Please enter /START to start a new game</i>
+      value: <i>Please enter <color=blue>/START</color> to start a new game</i>
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: text_Intro.Array.data[3]
-      value: <i>or /LOAD to load last save</i>
+      value: <i>or <color=blue>/LOAD</color> to load last save</i>
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: inputs_Help.Array.data[2]
+      value: /blayt
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}

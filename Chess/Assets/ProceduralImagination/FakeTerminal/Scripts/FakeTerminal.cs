@@ -129,6 +129,7 @@ public class FakeTerminal : MonoBehaviour
     //  Choose your favorite cursor char. Default: █
     public float cursor_BlinkingTime;
     //  Choose cursor blinking time.
+    public string LineIntro;
 
     //----//
 
@@ -452,10 +453,11 @@ public class FakeTerminal : MonoBehaviour
                     }
                 }
 
-                if(!logged && admin_RequestLogin)
+                if (!logged && admin_RequestLogin)
                 {
                     lineIntro = "Insert password: ";
                 }
+                else lineIntro = LineIntro;
 
                 AddLineToList(lineIntro);
 
@@ -511,11 +513,11 @@ public class FakeTerminal : MonoBehaviour
         else if(logged && admin_RequestLogin)
         {
             PrintAccessGranted();
-            lineIntro = "";
+            lineIntro = LineIntro;
         }
         else if(!admin_RequestLogin)
         {
-            lineIntro = "";
+            lineIntro = LineIntro;
         }
 
         AddLineToList(lineIntro);
