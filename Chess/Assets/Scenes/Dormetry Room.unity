@@ -2542,7 +2542,7 @@ PrefabInstance:
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: text_MaxStringsOnScreen
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
@@ -2719,6 +2719,12 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704901, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 03b73ad5a9eb3cb48b8ac84b50a7add4,
+        type: 3}
     - target: {fileID: 8090101212528704902, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: m_IsActive
