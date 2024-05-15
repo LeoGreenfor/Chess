@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField]
@@ -9,12 +11,12 @@ public class PlayerMovementController : MonoBehaviour
     public bool canMove;
 
     [Header("Moving")]
-    public float walkingSpeed;
-    public float runningSpeed;
+    [SerializeField] private float walkingSpeed;
+    [SerializeField] private float runningSpeed;
 
     [Header("Rotation")]
-    public float jumpForce;
-    public float gravity;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float gravity;
 
     public Camera MainCamera;
     public float lookDensity;
@@ -23,13 +25,25 @@ public class PlayerMovementController : MonoBehaviour
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX;
-
-    //public Animator animator;
+    private bool _isMoving;
+    public bool IsMoving
+    {
+        get { return _isMoving; }
+        set
+        {
+            _isMoving = value;
+            OnChangeMoving?.Invoke();
+        }
+    }
+    private Action OnChangeMoving;
+    private Animator _animator;
 
     void Start()
     {
+        OnChangeMoving += ChangeMovingAnimation;
+        _animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
-
+        
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -110,6 +124,11 @@ public class PlayerMovementController : MonoBehaviour
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
+        
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            _animator.SetBool("IsMoving", true);
+        else
+            _animator.SetBool("IsMoving", false);
 
         characterController.Move(moveDirection * Time.deltaTime);
     }
@@ -123,14 +142,10 @@ public class PlayerMovementController : MonoBehaviour
 
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookDensity, 0);
         }
+    }
 
-        /*if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-        {
-            animator.SetInteger("State", 1);
-        }
-        else
-        {
-            animator.SetInteger("State", 0);
-        }*/
+    private void ChangeMovingAnimation()
+    {
+        //_animator.SetBool("IsMoving", _isMoving);
     }
 }

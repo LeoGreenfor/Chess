@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IEntity
+[RequireComponent(typeof(Animator))]
+public class Player : IEntity
 {
+    #region Singleton
     private static Player _instance;
 
     public static Player Instance()
@@ -13,6 +16,7 @@ public class Player : MonoBehaviour, IEntity
 
         return _instance;
     }
+    #endregion
 
     public void Attack()
     {
