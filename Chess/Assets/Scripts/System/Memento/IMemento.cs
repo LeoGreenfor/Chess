@@ -6,6 +6,7 @@ using UnityEngine;
 public interface IMemento
 {
     string GetState();
-
-    DateTime GetDate();
+    ChessSide GetPlayerChessSide();
+    int GetLastLevelNumber();
+    Player GetPlayer();
 }
