@@ -32,15 +32,12 @@ public class PlayerMovementController : MonoBehaviour
         set
         {
             _isMoving = value;
-            OnChangeMoving?.Invoke();
         }
     }
-    private Action OnChangeMoving;
     private Animator _animator;
 
     void Start()
     {
-        OnChangeMoving += ChangeMovingAnimation;
         _animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         
@@ -142,10 +139,5 @@ public class PlayerMovementController : MonoBehaviour
 
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookDensity, 0);
         }
-    }
-
-    private void ChangeMovingAnimation()
-    {
-        //_animator.SetBool("IsMoving", _isMoving);
     }
 }
