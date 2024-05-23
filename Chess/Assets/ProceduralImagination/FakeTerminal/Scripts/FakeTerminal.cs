@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using Unity.VisualScripting;
+using System.Linq;
 
 public class FakeTerminal : MonoBehaviour
 {
@@ -139,6 +141,7 @@ public class FakeTerminal : MonoBehaviour
 
     private Text screen;
 
+    private string inputLine;
     private int actualLine;
     //  Just esthetics. It's a sequential number shown in each line.
     private string lineIntro;
@@ -146,6 +149,8 @@ public class FakeTerminal : MonoBehaviour
     private string originalPassword;
 
     private bool _isTurnOn;
+    private bool _isCanEnterCommand;
+    private UnityEvent _targetFunction;
 
     private bool terminalIsRunning;
     private bool terminalStarting;
@@ -359,9 +364,9 @@ public class FakeTerminal : MonoBehaviour
                 else
                 {
                     bool printError = true;
-
                     if(outputText[actualLine].Replace("" + cursor_Char, "").Length > lineIntro.Length)
                     {
+                        inputLine = outputText[actualLine].Replace("" + cursor_Char, "").Substring(lineIntro.Length);
                         //----//
 
                         // ADD HERE NEW CUSTOM COMMANDS
@@ -396,10 +401,18 @@ public class FakeTerminal : MonoBehaviour
                                 {
                                     if(outputText[actualLine].Replace("" + cursor_Char, "").Substring(lineIntro.Length) == input_Text)
                                     {
-                                        printError = false;
-                                        PrintCustomText(custom_InputsIndex);
-                        
                                         custom_Functions[custom_InputsIndex].Invoke();
+
+                                        if (!_isCanEnterCommand && custom_Functions[custom_InputsIndex] == _targetFunction)
+                                        {
+                                            printError = true;
+                                        }
+                                        else
+                                        {
+                                            printError = false;
+                                            PrintCustomText(custom_InputsIndex);
+                                        }
+
                                     }
                                 }
                             }
@@ -713,6 +726,27 @@ public class FakeTerminal : MonoBehaviour
         return textToPrint;
     }
 
+    //----//
+
+    public string GetInputFromTerminal()
+    {
+        return inputLine;
+    }
+    public void SetIsCanEnterCommand(bool canEnterCommand, string targetFunction)
+    {
+        _isCanEnterCommand = canEnterCommand;
+
+        for (int i = 0; i < custom_Functions.Length; i++)
+        {
+            if (custom_Functions[i].GetPersistentMethodName(0) == targetFunction)
+            {
+                _targetFunction = custom_Functions[i];
+                return;
+            }
+        }
+
+        targetFunction = null;
+    }
     public void TurnOn(bool value)
     {
         _isTurnOn = value;

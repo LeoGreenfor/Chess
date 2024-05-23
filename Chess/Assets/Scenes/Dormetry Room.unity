@@ -2531,6 +2531,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
+      propertyPath: custom_Texts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
       propertyPath: text_Help.Array.data[1]
       value: 'Basic commands list:'
       objectReference: {fileID: 0}
@@ -2557,7 +2562,7 @@ PrefabInstance:
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: custom_Inputs.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
@@ -2593,6 +2598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: inputs_Help.Array.data[2]
       value: /blayt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: custom_Functions.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
@@ -2636,6 +2646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
+      propertyPath: custom_Texts.Array.data[2].text_Input.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
       propertyPath: custom_Inputs.Array.data[0].text_Input.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2647,16 +2662,26 @@ PrefabInstance:
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: custom_Inputs.Array.data[2].text_Input.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: custom_Texts.Array.data[0].text_Input.Array.data[1]
-      value: '        Wait for new chess game...'
+      value: Choose your side. Enter /white
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: custom_Texts.Array.data[0].text_Input.Array.data[2]
+      value: or /black
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: custom_Texts.Array.data[1].text_Input.Array.data[1]
+      value: '        Loading your chess game...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: custom_Texts.Array.data[2].text_Input.Array.data[1]
       value: '        Loading your chess game...'
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
@@ -2682,7 +2707,22 @@ PrefabInstance:
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
       propertyPath: custom_Inputs.Array.data[2].text_Input.Array.data[0]
-      value: /load
+      value: /white
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: custom_Inputs.Array.data[2].text_Input.Array.data[1]
+      value: /black
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: custom_Functions.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: custom_Functions.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
@@ -2696,6 +2736,16 @@ PrefabInstance:
       objectReference: {fileID: 6694689120613361440}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
+      propertyPath: custom_Functions.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6694689120613361440}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: custom_Functions.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
       propertyPath: custom_Functions.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartNewGame
       objectReference: {fileID: 0}
@@ -2706,6 +2756,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
+      propertyPath: custom_Functions.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSide
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
       propertyPath: custom_Functions.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MenuLaptopController, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -2713,6 +2768,16 @@ PrefabInstance:
         type: 3}
       propertyPath: custom_Functions.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MenuLaptopController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: custom_Functions.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuLaptopController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090101212528704900, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: custom_Functions.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8090101212528704901, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
         type: 3}
@@ -4805,6 +4870,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563411952}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1660969331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1660969333}
+  - component: {fileID: 1660969332}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1660969332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660969331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91d6175f78efd644bb22a6b9a514d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 1
+  generalSettings: {fileID: 11400000, guid: 2617767e8f062ae4c956212f26c9d86d, type: 2}
+--- !u!4 &1660969333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660969331}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1690474724
 GameObject:
   m_ObjectHideFlags: 0

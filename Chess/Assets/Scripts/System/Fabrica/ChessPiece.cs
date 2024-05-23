@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class ChessPiece : MonoBehaviour, IEntity
 {
+    [Header("Stats")]
+    [SerializeField]
+    private float fullHealth;
+    [SerializeField]
+    private float attackStreght;
+
+    [Header("Movements")]
+    [SerializeField] private int goToX;
+    [SerializeField] private int goToY;
+
     public void Attack()
     {
         throw new System.NotImplementedException();

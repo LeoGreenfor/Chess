@@ -9,6 +9,7 @@ public class MenuLaptopController : MenuController
 {
     public FakeTerminal terminal;
     public float delaySeconds;
+    private bool _isInNewGameMode;
 
     private void OnMouseDown()
     {
@@ -17,11 +18,26 @@ public class MenuLaptopController : MenuController
 
     public void StartNewGame()
     {
-        StartCoroutine(LoadingCooldown(1));
+        _isInNewGameMode = true;
     }
+
+    public void ChooseSide()
+    {
+        if (_isInNewGameMode)
+        {
+            terminal.SetIsCanEnterCommand(true, "ChooseSide");
+            GameManager.Instance.SetPlayerSide(terminal.GetInputFromTerminal().Replace("/", ""));
+            Debug.LogError(terminal.GetInputFromTerminal().Replace("/", "")); 
+            StartCoroutine(LoadingCooldown(2));
+        }
+        else terminal.SetIsCanEnterCommand(false, "ChooseSide");
+        
+        //StartCoroutine(LoadingCooldown(1));
+    }
+
     public void LoadGame()
     {
-        StartCoroutine(LoadingCooldown(1));
+        StartCoroutine(LoadingCooldown(2));
     }
 
     private IEnumerator LoadingCooldown(int sceneIndex)

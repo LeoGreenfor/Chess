@@ -1,23 +1,12 @@
+using Plugins.MissionCore.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Player : IEntity
+public class Player : Singleton<Player>, IEntity
 {
-    #region Singleton
-    private static Player _instance;
-
-    public static Player Instance()
-    {
-        if (_instance == null)
-            _instance = new Player();
-
-        return _instance;
-    }
-    #endregion
-
     public void Attack()
     {
         throw new System.NotImplementedException();

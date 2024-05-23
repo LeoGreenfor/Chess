@@ -5,7 +5,6 @@ using UnityEngine;
 
 public interface IMemento
 {
-    string GetState();
     ChessSide GetPlayerChessSide();
     int GetLastLevelNumber();
     Player GetPlayer();
