@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class ChessBoardHandler : MonoBehaviour
 {
-    [SerializeField] ChessBoardCell[] cells;
+    [SerializeField] private ChessBoardCell[] cells;
+    [SerializeField] private ChessPiece[] pieces;
 }

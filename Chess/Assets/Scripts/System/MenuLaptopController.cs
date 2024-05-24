@@ -27,7 +27,6 @@ public class MenuLaptopController : MenuController
         {
             terminal.SetIsCanEnterCommand(true, "ChooseSide");
             GameManager.Instance.SetPlayerSide(terminal.GetInputFromTerminal().Replace("/", ""));
-            Debug.LogError(terminal.GetInputFromTerminal().Replace("/", "")); 
             StartCoroutine(LoadingCooldown(2));
         }
         else terminal.SetIsCanEnterCommand(false, "ChooseSide");

@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: GameGeneralSettings
   m_EditorClassIdentifier: 
   SaveGameFilePath: gameSavedData.info
-  chessPiecesPrefabs: []
+  chessPiecesPrefabs:
+  - chessPieces:
+    - {fileID: 2900287604547633895, guid: af64d8ae3d8843247be983781eb9d4a6, type: 3}
+  - chessPieces:
+    - {fileID: 4959364853543345168, guid: a202952093cccda4e8cd48914beb2a5e, type: 3}

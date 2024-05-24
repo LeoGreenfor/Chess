@@ -2,9 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(IEntity))]
 public abstract class EntityController : MonoBehaviour
 {
-    private void SpawnEntity() { }
+    private IEntity _Entity;
+
+    private void SpawnEntity(int x, int y, )
+    {
+        _Entity.Spawn(x, y);
+    }
 
     protected abstract void CreateEntity();
+
+    protected abstract void Retreat();
+
+    protected abstract void MoveTo();
 }

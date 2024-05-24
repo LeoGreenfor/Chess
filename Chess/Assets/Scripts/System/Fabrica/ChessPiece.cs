@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,42 +6,50 @@ using UnityEngine;
 public class ChessPiece : MonoBehaviour, IEntity
 {
     [Header("Stats")]
-    [SerializeField]
-    private float fullHealth;
-    [SerializeField]
-    private float attackStreght;
+    [SerializeField] private float fullHealth;
+    [SerializeField] private float attackStreght;
+    [SerializeField] private float deathDelay;
 
     [Header("Movements")]
     [SerializeField] private int goToX;
     [SerializeField] private int goToY;
+    [SerializeField] private bool isMoveByDiagonal;
 
-    public void Attack()
-    {
-        throw new System.NotImplementedException();
-    }
+    private float _currentHealth;
+    private int _currentX;
+    private int _currentY;
+    private Action onGettingDamage;
 
     public void Create()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void Destroy()
-    {
-        throw new System.NotImplementedException();
+        onGettingDamage += Kill;
     }
 
     public void Kill()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(DeathCooldown());
+    }
+    private IEnumerator DeathCooldown()
+    {
+        yield return new WaitForSeconds(deathDelay);
+        Destroy(this.gameObject);
     }
 
-    public void Retreat()
+    public void Spawn(ChessBoardCell cell)
     {
-        throw new System.NotImplementedException();
+        _currentHealth = fullHealth;
+        _currentX = cell.CellToIntCoordinates()[0];
+        _currentY = cell.CellToIntCoordinates()[1];
     }
 
-    public void Spawn()
+    public void Attack()
     {
-        throw new System.NotImplementedException();
+        Player.Instance.GetDamage(attackStreght);
+    }
+
+    public void GetDamage(float damage)
+    {
+        _currentHealth =- damage;
+        onGettingDamage?.Invoke();
     }
 }

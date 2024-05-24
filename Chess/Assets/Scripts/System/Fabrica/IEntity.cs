@@ -5,9 +5,8 @@ using UnityEngine;
 public interface IEntity
 {
     void Create();
-    void Destroy();
-    void Spawn();
+    void Spawn(ChessBoardCell cell);
     void Kill();
     void Attack();
-    void Retreat();
+    void GetDamage(float damage);
 }

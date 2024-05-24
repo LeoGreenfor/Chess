@@ -7,33 +7,43 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Player : Singleton<Player>, IEntity
 {
+    [Header("Stats")]
+    [SerializeField] private float fullHealth;
+    [SerializeField] private float strength;
+    [SerializeField] private float defence;
+
     public void Attack()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public void Create()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public void Destroy()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
+    }
+
+    public void GetDamage(float damage)
+    {
+        throw new NotImplementedException();
     }
 
     public void Kill()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public void Retreat()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
-    public void Spawn()
+    public void Spawn(int x, int y)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 }
