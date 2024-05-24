@@ -13,6 +13,7 @@ public class ChessPiece : MonoBehaviour, IEntity
     [Header("Movements")]
     [SerializeField] private int goToX;
     [SerializeField] private int goToY;
+    [SerializeField] private bool isMoveByStraight;
     [SerializeField] private bool isMoveByDiagonal;
 
     private float _currentHealth;
