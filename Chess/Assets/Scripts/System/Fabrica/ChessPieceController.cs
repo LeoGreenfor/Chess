@@ -8,4 +8,14 @@ public class ChessPieceController : EntityController
     {
         throw new System.NotImplementedException();
     }
+
+    protected override void MoveTo()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void Retreat()
+    {
+        throw new System.NotImplementedException();
+    }
 }

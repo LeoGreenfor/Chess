@@ -42,7 +42,7 @@ public class Player : Singleton<Player>, IEntity
         throw new NotImplementedException();
     }
 
-    public void Spawn(int x, int y)
+    public void Spawn(ChessBoardCell cell)
     {
         throw new NotImplementedException();
     }

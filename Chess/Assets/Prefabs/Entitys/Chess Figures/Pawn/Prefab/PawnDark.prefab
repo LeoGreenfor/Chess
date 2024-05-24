@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHealth: 7
   attackStreght: 2
+  deathDelay: 0
   goToX: 1
   goToY: 1
+  isMoveByStraight: 1
   isMoveByDiagonal: 0

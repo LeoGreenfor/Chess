@@ -7,9 +7,9 @@ public abstract class EntityController : MonoBehaviour
 {
     private IEntity _Entity;
 
-    private void SpawnEntity(int x, int y, )
+    private void SpawnEntity(ChessBoardCell cell)
     {
-        _Entity.Spawn(x, y);
+        _Entity.Spawn(cell);
     }
 
     protected abstract void CreateEntity();
