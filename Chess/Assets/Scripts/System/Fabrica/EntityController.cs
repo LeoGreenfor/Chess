@@ -7,6 +7,14 @@ public abstract class EntityController : MonoBehaviour
 {
     private IEntity _Entity;
 
+    [Header("Movements")]
+    [SerializeField] private int goToX;
+    [SerializeField] private int goToY;
+    [SerializeField] private bool isMoveByStraight;
+    [SerializeField] private bool isMoveByDiagonal;
+
+    [SerializeField] private bool isOnTurn;
+
     private void SpawnEntity(ChessBoardCell cell)
     {
         _Entity.Spawn(cell);
@@ -14,7 +22,18 @@ public abstract class EntityController : MonoBehaviour
 
     protected abstract void CreateEntity();
 
-    protected abstract void Retreat();
+    protected virtual void Retreat()
+    {
+        GetOnTurn(false);
+    }
 
-    protected abstract void MoveTo();
+    protected virtual void MoveTo()
+    {
+        GetOnTurn(false);
+    }
+
+    protected void GetOnTurn(bool value)
+    {
+        isOnTurn = value;
+    }
 }

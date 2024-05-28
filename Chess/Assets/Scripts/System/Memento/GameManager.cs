@@ -11,8 +11,7 @@ public class GameManager : Singleton<GameManager>
     public int LastLevelNumber {  get; set; }
 
     [Header("Game data")]
-    [SerializeField]
-    private GameGeneralSettings generalSettings;
+    public GameGeneralSettings generalSettings;
     private int _mainChessSideIndex;
 
     public void SetPlayerSide(string playerSide)

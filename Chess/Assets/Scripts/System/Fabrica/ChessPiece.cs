@@ -10,12 +10,6 @@ public class ChessPiece : MonoBehaviour, IEntity
     [SerializeField] private float attackStreght;
     [SerializeField] private float deathDelay;
 
-    [Header("Movements")]
-    [SerializeField] private int goToX;
-    [SerializeField] private int goToY;
-    [SerializeField] private bool isMoveByStraight;
-    [SerializeField] private bool isMoveByDiagonal;
-
     private float _currentHealth;
     private int _currentX;
     private int _currentY;
