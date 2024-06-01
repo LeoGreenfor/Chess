@@ -323,6 +323,7 @@ MonoBehaviour:
   - corridor 3
   CreatesTags:
   - corridor 4
+  - match spawn
   Exits: {fileID: 3816815562009239804}
   Bounds: {fileID: 226088168344294996}
   DeadEndChance: 1

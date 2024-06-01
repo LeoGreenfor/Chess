@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="LevelGenerator.Scripts.AdvancedExit" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\AdvancedExit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Bounds" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Bounds.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.DeadEnd" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\DeadEnd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Exits" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Exits.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.LevelGenerator" Collapsed="true">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQgAQBgmAAAAAAIMAIACAAAIAAABIEIEAAAAAANAg=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\LevelGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Section" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAAABAAAAAYAAAAAQCAAAAAIAgEAAAAAAAEAgAgA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Section.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Exceptions.InvalidRuleDeclarationException" Collapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Exceptions\InvalidRuleDeclarationException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Helpers.ExtensionMethods" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Helpers\ExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Helpers.RandomService" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAABAAAAAAEAAAAAAAAACAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Helpers\RandomService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Structure.TagRule" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAGAQAgAAIAAAAAAAEAAAQAAAACAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Structure\TagRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Structure.WeightedList" Collapsed="true">
+    <Position X="17.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAEAAAAAACAAAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Structure\WeightedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Structure.WeightedListItem" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Structure\WeightedListItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator.Scripts.Structure.WeightedSectionList" Collapsed="true">
+    <Position X="17.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Structure\WeightedSectionList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OccaSoftware.Musemi.GetGlobalWind" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAgIAAAAgAACAAAIAAAAAIAACAA=</HashCode>
+      <FileName>Assets\OccaSoftware\Musemi - Spring Ambient VFX\Scripts\GetGlobalWind.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OccaSoftware.Musemi.SetGlobalWind" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAkAAQAAAAAAAQAAQEIAQEAAAACAAAYAAAAAAAACAA=</HashCode>
+      <FileName>Assets\OccaSoftware\Musemi - Spring Ambient VFX\Scripts\SetGlobalWind.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomFunctions" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAIAAAABAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\ProceduralImagination\FakeTerminal\Scripts\DemoScripts\CustomFunctions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FakeTerminal" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAANACCAASQAiAsDUbqAcMSE6UCAhCSI1ACEKKEQCjA=</HashCode>
+      <FileName>Assets\ProceduralImagination\FakeTerminal\Scripts\FakeTerminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Outline" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gARBAQhgABEAAAAQgAEAAAACAQAAAgAIAQAQAAAAyEg=</HashCode>
+      <FileName>Assets\QuickOutline\Scripts\Outline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChessBoardCell" Collapsed="true">
+    <Position X="12" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAgAAAAAAAEAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\Enviroment\ChessBoardCell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChessBoardHandler" Collapsed="true">
+    <Position X="10.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAACAAAAAAAoAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enviroment\ChessBoardHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerMovementController" Collapsed="true">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEwAAKBgAAAAAACAAACAEQAAAEGAIBAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerMovementController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChessPiece" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAEgAAAAAAAEAABgEAIAABFAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Fabrica\ChessPiece.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.477" />
+  </Class>
+  <Class Name="ChessPieceController" Collapsed="true">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAIAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Fabrica\ChessPieceController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntityController" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAIABhAQAAAAEJAAAAAIAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Fabrica\EntityController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HorseController" Collapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAIAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Fabrica\HorseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEgABAAAAAEAAAAAAIBABEAAQAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\System\Fabrica\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.253" />
+  </Class>
+  <Class Name="PlayerController" Collapsed="true">
+    <Position X="6.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAIAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Fabrica\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameGeneralSettings" Collapsed="true">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\GameGeneralSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapController" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAIAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\MapController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameCaretaker" Collapsed="true">
+    <Position X="10.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAQAAACAABAgAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Memento\GameCaretaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="1.5" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="GameManager.Memento" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\System\Memento\GameManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAQAQoAAAACAAAAIAAAAAAAAAAAAQAAgAE=</HashCode>
+      <FileName>Assets\Scripts\System\Memento\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuController" Collapsed="true">
+    <Position X="6.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAEQAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\MenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuDoorController" Collapsed="true">
+    <Position X="5.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\MenuDoorController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuLaptopController" Collapsed="true">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAgAAAAAAQAAAAAAAAAAAKAIAAEAAAAAAE=</HashCode>
+      <FileName>Assets\Scripts\System\MenuLaptopController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseController" Collapsed="true">
+    <Position X="13.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAgAACAAgAAAIAAAEAAAAABAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\PauseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plugins.MissionCore.Core.Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIUAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAIAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\System\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plugins.MissionCore.Core.Singleton" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IEntity" Collapsed="true">
+    <Position X="4.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEgAAAAAAAEAAAAAAIAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Fabrica\IEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IMemento" Collapsed="true">
+    <Position X="3.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Memento\IMemento.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="LevelGenerator.Scripts.Structure.RuleStatus" Collapsed="true">
+    <Position X="15.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LevelGenerator\Scripts\Structure\TagRule.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ChessSide" Collapsed="true">
+    <Position X="3.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\System\Memento\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

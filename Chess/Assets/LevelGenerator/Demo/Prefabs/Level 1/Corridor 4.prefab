@@ -324,6 +324,7 @@ MonoBehaviour:
   - level end
   - corridor 5
   - corridor 6
+  - match spawn
   Exits: {fileID: 2334874028833358124}
   Bounds: {fileID: 1710268326293223300}
   DeadEndChance: 1
