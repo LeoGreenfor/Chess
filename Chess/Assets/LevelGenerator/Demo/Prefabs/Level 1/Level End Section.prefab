@@ -147,7 +147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5726677268349619408
 Transform:
   m_ObjectHideFlags: 0
@@ -225,10 +225,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tags:
   - level end
-  CreatesTags: []
+  CreatesTags:
+  - corridor
   Exits: {fileID: 3403843321576069323}
   Bounds: {fileID: 1794637184134442595}
-  DeadEndChance: 0
+  DeadEndChance: 30
 --- !u!114 &4358391984100654325
 MonoBehaviour:
   m_ObjectHideFlags: 0

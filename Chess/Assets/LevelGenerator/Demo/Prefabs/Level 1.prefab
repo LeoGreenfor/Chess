@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8283059243233330527
 MonoBehaviour:
@@ -46,10 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Seed: 0
   SectionContainer: {fileID: 0}
-  MaxLevelSize: 150
-  MaxAllowedOrder: 100
+  MaxLevelSize: 50
+  MaxAllowedOrder: 20
   Sections:
-  - {fileID: 1431594780588024795, guid: 7608e1b67385fb8478070e93b04d8d91, type: 3}
   - {fileID: 1431594780588024795, guid: f71403b365bbbbb42a4390be56e4f09c, type: 3}
   - {fileID: 5512357670927176917, guid: 043e18e1a25588549a9f54b443ce892f, type: 3}
   - {fileID: 5512357670927176917, guid: 6e6dc0ffc40ca0c48994077da31731a2, type: 3}
@@ -58,6 +57,7 @@ MonoBehaviour:
   - {fileID: 5512357670927176917, guid: cd839982cc348c0438b67986e17a7fd0, type: 3}
   - {fileID: 5512357670927176917, guid: f7dd967a677d9c8489a5889b0c70e317, type: 3}
   - {fileID: 2012793185415375663, guid: e3b69d83d911f434c9ca0742299603e7, type: 3}
+  - {fileID: 5512357670927176917, guid: f3e9de31ae127c54ea6e055a55f6e9cc, type: 3}
   DeadEnds:
   - {fileID: 6867956003714455516, guid: dab7ae617f7ac134a8c193ec6ebcb930, type: 3}
   - {fileID: 6867956003714455516, guid: 24f61625421895d468c6517579af400f, type: 3}
@@ -70,9 +70,6 @@ MonoBehaviour:
   - Tag: level end
     MinAmount: 1
     MaxAmount: 1
-  - Tag: corridor 4
-    MinAmount: 5
-    MaxAmount: 10
-  - Tag: corridor 5
-    MinAmount: 5
-    MaxAmount: 10
+  - Tag: match spawn
+    MinAmount: 4
+    MaxAmount: 4

@@ -126,14 +126,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tags:
   - match spawn
+  - room
   CreatesTags:
-  - corridor 3
-  - corridor 6
-  - corridor 5
-  - corridor 1
+  - corridor
   Exits: {fileID: 8695841557739317041}
   Bounds: {fileID: 5726012082559340953}
-  DeadEndChance: 1
+  DeadEndChance: 10
 --- !u!114 &2465339947583948463
 MonoBehaviour:
   m_ObjectHideFlags: 0
