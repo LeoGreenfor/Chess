@@ -282,6 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915537875845779708}
   - component: {fileID: 11835433341965080}
+  - component: {fileID: 4607723720154591480}
   m_Layer: 0
   m_Name: Corridor 3
   m_TagString: Untagged
@@ -323,10 +324,26 @@ MonoBehaviour:
   - corridor 3
   CreatesTags:
   - corridor 4
+  - corridor 5
   - match spawn
   Exits: {fileID: 3816815562009239804}
   Bounds: {fileID: 226088168344294996}
   DeadEndChance: 1
+--- !u!114 &4607723720154591480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057709168827544775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af95da0ba5b14044a99b36556a6e5b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPosition: {x: 0, y: 0, z: 2.5}
+  radius: 4
+  strength: 2
 --- !u!1001 &1700917042163325417
 PrefabInstance:
   m_ObjectHideFlags: 0

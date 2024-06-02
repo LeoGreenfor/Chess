@@ -123,6 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 604230003132716849}
   - component: {fileID: 5512357670927176917}
+  - component: {fileID: 6190697267732940456}
   m_Layer: 0
   m_Name: Corridor 6
   m_TagString: Untagged
@@ -169,6 +170,21 @@ MonoBehaviour:
   Exits: {fileID: 8695841557739317041}
   Bounds: {fileID: 5726012082559340953}
   DeadEndChance: 1
+--- !u!114 &6190697267732940456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560124414007997194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af95da0ba5b14044a99b36556a6e5b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPosition: {x: 0, y: 0, z: 2.5}
+  radius: 4
+  strength: 2
 --- !u!1 &5792981730509015865
 GameObject:
   m_ObjectHideFlags: 0

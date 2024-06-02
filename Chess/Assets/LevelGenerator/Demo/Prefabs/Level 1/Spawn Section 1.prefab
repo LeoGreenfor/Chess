@@ -230,6 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6324030493043515455}
   - component: {fileID: 1431594780588024795}
+  - component: {fileID: 357551076438322762}
   m_Layer: 0
   m_Name: Spawn Section 1
   m_TagString: Untagged
@@ -274,6 +275,21 @@ MonoBehaviour:
   Exits: {fileID: 2813634955293397055}
   Bounds: {fileID: 1213507208336664215}
   DeadEndChance: 0
+--- !u!114 &357551076438322762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946044768044139524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af95da0ba5b14044a99b36556a6e5b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPosition: {x: 0, y: 0, z: 1}
+  radius: 3.5
+  strength: 2
 --- !u!1001 &217570059877947587
 PrefabInstance:
   m_ObjectHideFlags: 0
