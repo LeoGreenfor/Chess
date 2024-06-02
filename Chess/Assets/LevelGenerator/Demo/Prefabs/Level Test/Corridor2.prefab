@@ -567,6 +567,7 @@ MonoBehaviour:
   CreatesTags:
   - room
   - treasure
+  - end
   - spawn
   Exits: {fileID: 2334874028833358124}
   Bounds: {fileID: 1710268326293223300}
