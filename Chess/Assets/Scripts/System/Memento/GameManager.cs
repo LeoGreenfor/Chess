@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -12,7 +13,19 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Game data")]
     public GameGeneralSettings generalSettings;
+
+    public Action OnMatchStart;
+    public Action OnMatchEnd;
+
     private int _mainChessSideIndex;
+    private ChessBoardHandler _chessBoardHandler;
+
+    private void Start()
+    {
+        OnMatchStart += StartMatch;
+        OnMatchEnd += EndMatch;
+        _chessBoardHandler = FindFirstObjectByType<ChessBoardHandler>();
+    }
 
     public void SetPlayerSide(string playerSide)
     {
@@ -30,6 +43,17 @@ public class GameManager : Singleton<GameManager>
         }
 
         Debug.LogError("wrong chess side");
+    }
+
+    private void StartMatch()
+    {
+        Player.Instance.gameObject.SetActive(false);
+        _chessBoardHandler.OnGameStateChange?.Invoke(true);
+    }
+    private void EndMatch()
+    {
+        Player.Instance.gameObject.SetActive(true);
+        _chessBoardHandler.OnGameStateChange?.Invoke(false);
     }
 
     #region Memento 

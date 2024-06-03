@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/BossFightArena.unity
     guid: 6fcc624ce0b92314792230a0df8b355f
+  - enabled: 1
+    path: Assets/Scenes/ChessBoard Arena.unity
+    guid: d6f5c4d6c1dfc7a4bb9c22db0bdbacb9
   m_configObjects: {}

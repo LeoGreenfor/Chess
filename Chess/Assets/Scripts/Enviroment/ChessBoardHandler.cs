@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,17 +8,27 @@ public class ChessBoardHandler : MonoBehaviour
     [SerializeField] private ChessBoardCell[] cells;
     [SerializeField] private ChessPiece[] pieces;
 
-    private bool isGameBegin;
+    public Action<bool> OnGameStateChange;
 
-    private void OnCollisionEnter(Collision collision)
+    public bool IsGameBegin {  get; private set; }
+
+    private void Start()
     {
-        isGameBegin = true;
+        OnGameStateChange += SetBeginGame;
+    }
+
+    private void SetBeginGame(bool state)
+    {
+        IsGameBegin = state;
     }
 
     private void FixedUpdate()
     {
-        if (!isGameBegin) return;
+        if (!IsGameBegin) return;
         
-
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            GameManager.Instance.OnMatchEnd?.Invoke();
+        }
     }
 }
