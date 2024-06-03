@@ -347,7 +347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28214419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -200, y: -0.03, z: -200}
+  m_LocalPosition: {x: -200, y: 0, z: -200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -430,7 +430,7 @@ MonoBehaviour:
   terrainLayers:
   - {fileID: 8574412962073106934, guid: edfcf690e76037b4aa2944d34b5aafc1, type: 2}
   - {fileID: 8574412962073106934, guid: 2d5160a25e1606d4f824dd0cbe3612aa, type: 2}
-  chunkCount: {x: 8, y: 8}
+  chunkCount: {x: 3, y: 3}
   sceneFilters: []
   bladeType: 2
   multipleMeshes: 1
@@ -1544,8 +1544,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746519328}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 200, y: 3, z: 0}
-  m_LocalScale: {x: 400, y: 13, z: 1}
+  m_LocalPosition: {x: 175, y: 3, z: 0}
+  m_LocalScale: {x: 400, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2144739021}
@@ -2793,8 +2793,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712104426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -200}
-  m_LocalScale: {x: 400, y: 13, z: 1}
+  m_LocalPosition: {x: 0, y: 3, z: -175}
+  m_LocalScale: {x: 400, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2144739021}
@@ -2898,8 +2898,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727755408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 200}
-  m_LocalScale: {x: 400, y: 13, z: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 175}
+  m_LocalScale: {x: 400, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2144739021}
@@ -3396,8 +3396,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107011719}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -200, y: 3, z: 0}
-  m_LocalScale: {x: 400, y: 13, z: 1}
+  m_LocalPosition: {x: -175, y: 3, z: 0}
+  m_LocalScale: {x: 400, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2144739021}
@@ -3586,6 +3586,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2189119050153187130, guid: cc8d8f4b8ad913148ba0579f80a34f46,
+        type: 3}
+      propertyPath: far clip plane
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 5671146422674557840, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
       propertyPath: pauseController

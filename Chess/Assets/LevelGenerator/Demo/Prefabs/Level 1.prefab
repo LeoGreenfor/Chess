@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8283059243233330527
 MonoBehaviour:
@@ -49,27 +49,26 @@ MonoBehaviour:
   MaxLevelSize: 50
   MaxAllowedOrder: 20
   Sections:
-  - {fileID: 1431594780588024795, guid: f71403b365bbbbb42a4390be56e4f09c, type: 3}
-  - {fileID: 5512357670927176917, guid: 043e18e1a25588549a9f54b443ce892f, type: 3}
-  - {fileID: 5512357670927176917, guid: 6e6dc0ffc40ca0c48994077da31731a2, type: 3}
-  - {fileID: 11835433341965080, guid: 6539fa238b7b7774abdc4e9136ca55e9, type: 3}
-  - {fileID: 1492136533057598152, guid: 3942329773c739043923a240b565c70a, type: 3}
-  - {fileID: 5512357670927176917, guid: cd839982cc348c0438b67986e17a7fd0, type: 3}
-  - {fileID: 5512357670927176917, guid: f7dd967a677d9c8489a5889b0c70e317, type: 3}
-  - {fileID: 2012793185415375663, guid: e3b69d83d911f434c9ca0742299603e7, type: 3}
-  - {fileID: 5512357670927176917, guid: f3e9de31ae127c54ea6e055a55f6e9cc, type: 3}
+  - {fileID: 11835433341965080, guid: 98993407e31d0fa4ba24ce9141f6156b, type: 3}
+  - {fileID: 1492136533057598152, guid: 33da1bdb6f4d32f49927c824edf69b87, type: 3}
+  - {fileID: 4811814393726696739, guid: 950f29489f8c22d438a8c83ed440f299, type: 3}
+  - {fileID: 5512357670927176917, guid: 1da1e975e52522b41bb326f8320a1ca9, type: 3}
+  - {fileID: 6097536851214569045, guid: bc3303c965a287e4aac1ab8bb0c14ece, type: 3}
+  - {fileID: 9014937463811898191, guid: 8b474abab10cb62439a9b83592fb8291, type: 3}
+  - {fileID: 1431594780588024795, guid: 0efcfc5749c40ea468d48bd4585c59e2, type: 3}
+  - {fileID: 2012793185415375663, guid: 5811e37c225535841a326e0ceb5c7387, type: 3}
+  - {fileID: 2012793185415375663, guid: e8165e1b67da16248a7fd4405af80c84, type: 3}
   DeadEnds:
-  - {fileID: 6867956003714455516, guid: dab7ae617f7ac134a8c193ec6ebcb930, type: 3}
-  - {fileID: 6867956003714455516, guid: 24f61625421895d468c6517579af400f, type: 3}
+  - {fileID: 6867956003714455516, guid: 153f75bf4d9e85f4fae611cbb67b3341, type: 3}
   InitialSectionTags:
   - spawn
   SpecialRules:
   - Tag: spawn
     MinAmount: 1
     MaxAmount: 1
-  - Tag: level end
-    MinAmount: 1
-    MaxAmount: 1
-  - Tag: match spawn
+  - Tag: match
     MinAmount: 4
     MaxAmount: 4
+  - Tag: end
+    MinAmount: 1
+    MaxAmount: 1
