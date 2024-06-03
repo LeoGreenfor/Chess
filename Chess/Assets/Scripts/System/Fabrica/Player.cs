@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Player : Singleton<Player>, IEntity
+public class Player : MonoBehaviour, IEntity
 {
     [Header("Stats")]
     [SerializeField] private float fullHealth;

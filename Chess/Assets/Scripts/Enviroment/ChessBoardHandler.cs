@@ -9,6 +9,7 @@ public class ChessBoardHandler : MonoBehaviour
     [SerializeField] private ChessPiece[] pieces;
 
     public Action<bool> OnGameStateChange;
+    public Action OnPlayerMove;
 
     public bool IsGameBegin {  get; private set; }
 
@@ -26,9 +27,6 @@ public class ChessBoardHandler : MonoBehaviour
     {
         if (!IsGameBegin) return;
         
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            GameManager.Instance.OnMatchEnd?.Invoke();
-        }
+
     }
 }

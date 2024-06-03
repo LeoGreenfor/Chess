@@ -39,7 +39,7 @@ public class ChessPiece : MonoBehaviour, IEntity
 
     public void Attack()
     {
-        Player.Instance.GetDamage(attackStreght);
+        //Player.Instance.GetDamage(attackStreght);
     }
 
     public void GetDamage(float damage)

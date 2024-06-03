@@ -1,6 +1,7 @@
 using Plugins.MissionCore.Core;
 using System;
 using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,14 +9,18 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     public ChessSide PlayerSide {  get; private set; }
-    public Player Player { get; set; }
     public int LastLevelNumber {  get; set; }
 
     [Header("Game data")]
     public GameGeneralSettings generalSettings;
 
+    [Header("Game control")]
+    [SerializeField] private Player chessPlayer;
+    [SerializeField] private Player freeMovePlayer;
+
     public Action OnMatchStart;
     public Action OnMatchEnd;
+
 
     private int _mainChessSideIndex;
     private ChessBoardHandler _chessBoardHandler;
@@ -44,16 +49,27 @@ public class GameManager : Singleton<GameManager>
 
         Debug.LogError("wrong chess side");
     }
+    public Player GetFreeMovePlayer() => freeMovePlayer;
+    public Player GetChessPlayer() => chessPlayer;
 
     private void StartMatch()
     {
-        Player.Instance.gameObject.SetActive(false);
+        //SaveGame();
+        freeMovePlayer.gameObject.SetActive(false);
+        chessPlayer.gameObject.SetActive(true);
         _chessBoardHandler.OnGameStateChange?.Invoke(true);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     private void EndMatch()
     {
-        Player.Instance.gameObject.SetActive(true);
+        freeMovePlayer.gameObject.SetActive(true);
+        chessPlayer.gameObject.SetActive(false);
         _chessBoardHandler.OnGameStateChange?.Invoke(false);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     #region Memento 
@@ -70,7 +86,7 @@ public class GameManager : Singleton<GameManager>
     }
     public IMemento Save()
     {
-        return new Memento(PlayerSide, Player, LastLevelNumber);
+        return new Memento(PlayerSide, freeMovePlayer, LastLevelNumber);
     }
 
     // Restores the Originator's state from a memento object.
@@ -100,7 +116,7 @@ public class GameManager : Singleton<GameManager>
             return;
         }
         PlayerSide = memento.GetPlayerChessSide();
-        Player = memento.GetPlayer();
+        freeMovePlayer = memento.GetPlayer();
         LastLevelNumber = memento.GetLastLevelNumber();
     }
 

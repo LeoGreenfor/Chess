@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CooLetter: 99
   CooNumber: 0
+  _objOutline: {fileID: 4141220740207003238}
 --- !u!114 &4141220740207003238
 MonoBehaviour:
   m_ObjectHideFlags: 0
