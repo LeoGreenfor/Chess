@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : EntityController
@@ -9,9 +10,10 @@ public class PlayerController : EntityController
         throw new System.NotImplementedException();
     }
 
-    protected override void MoveTo()
+    /*protected override void MoveTo(Transform newTransform)
     {
-    }
+        transform.position = Vector3.Lerp(transform.position, newTransform.position, Time.deltaTime * moveSpeed);
+    }*/
 
     protected override void Retreat()
     {

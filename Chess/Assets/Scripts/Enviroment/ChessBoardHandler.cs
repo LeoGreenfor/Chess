@@ -6,16 +6,22 @@ using UnityEngine;
 public class ChessBoardHandler : MonoBehaviour
 {
     [SerializeField] private ChessBoardCell[] cells;
-    [SerializeField] private ChessPiece[] pieces;
+    [SerializeField] private ChessPieceController[] pieces;
+    [SerializeField] private PlayerController chessPlayer;
 
     public Action<bool> OnGameStateChange;
-    public Action OnPlayerMove;
+    public Action OnPlayerMakeMove;
 
     public bool IsGameBegin {  get; private set; }
 
     private void Start()
     {
         OnGameStateChange += SetBeginGame;
+
+        for (int i = 0; i < cells.Length; i++)
+        {
+            cells[i].OnPlayerMove += MovePlayer;
+        }
     }
 
     private void SetBeginGame(bool state)
@@ -27,6 +33,16 @@ public class ChessBoardHandler : MonoBehaviour
     {
         if (!IsGameBegin) return;
         
+
+    }
+
+    private void MovePlayer(Transform newPlayerPosition)
+    {
+        chessPlayer.MoveTo(newPlayerPosition);
+    }
+
+    private void MakeMove()
+    {
 
     }
 }

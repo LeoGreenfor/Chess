@@ -5,13 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(IEntity))]
 public abstract class EntityController : MonoBehaviour
 {
-    private IEntity _Entity;
+    public IEntity _Entity;
 
     [Header("Movements")]
     [SerializeField] private int goToX;
     [SerializeField] private int goToY;
     [SerializeField] private bool isMoveByStraight;
     [SerializeField] private bool isMoveByDiagonal;
+    [SerializeField] protected float moveTime;
 
     [SerializeField] private bool isOnTurn;
 
@@ -27,9 +28,20 @@ public abstract class EntityController : MonoBehaviour
         GetOnTurn(false);
     }
 
-    protected virtual void MoveTo()
+    public virtual void MoveTo(Transform newTransform)
     {
         GetOnTurn(false);
+
+        Vector3 startPosition = transform.position;
+        float elapsedTime = 0;
+
+        while (elapsedTime < moveTime)
+        {
+            transform.position = Vector3.Lerp(startPosition, newTransform.position, (elapsedTime / moveTime));
+            elapsedTime += Time.deltaTime;
+        }
+
+        transform.position = newTransform.position;
     }
 
     protected void GetOnTurn(bool value)

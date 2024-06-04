@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,7 @@ public class ChessBoardCell : MonoBehaviour
 
     [SerializeField] private Outline _objOutline;
 
-    private ChessBoardHandler _board;
-
-    private void Start()
-    {
-        _board = FindFirstObjectByType<ChessBoardHandler>();
-    }
+    public Action<Transform> OnPlayerMove;
 
     public string CellOriginalCoordinates()
     {
@@ -46,10 +42,6 @@ public class ChessBoardCell : MonoBehaviour
 
     private void OnMouseUp()
     {
-        _board.OnPlayerMove?.Invoke();
-        var player = GameManager.Instance.GetChessPlayer();
-        Vector3 towards = gameObject.transform.position;
-        player.transform.position = towards;
-        //player.GetComponent<CharacterController>().Move(gameObject.transform.position);
+        OnPlayerMove?.Invoke(gameObject.transform);
     }
 }

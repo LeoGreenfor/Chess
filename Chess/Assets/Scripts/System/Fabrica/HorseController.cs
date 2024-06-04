@@ -14,7 +14,7 @@ public class HorseController : ChessPieceController
 
     }
 
-    protected override void MoveTo()
+    protected override void MoveTo(Transform newTransform)
     {
 
     }
