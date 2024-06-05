@@ -51,6 +51,9 @@ public class PlayerMovementController : MonoBehaviour
         {
             pauseController.PauseGame();
         }
+
+        if (PauseController.gameIsPaused && Input.GetKeyUp(KeyCode.E)) pauseController.ResumeGame();
+
         if (!PauseController.gameIsPaused)
         {
             Move();

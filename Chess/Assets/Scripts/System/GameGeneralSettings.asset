@@ -15,6 +15,14 @@ MonoBehaviour:
   SaveGameFilePath: gameSavedData.info
   chessPiecesPrefabs:
   - chessPieces:
-    - {fileID: 2900287604547633895, guid: af64d8ae3d8843247be983781eb9d4a6, type: 3}
+    - {fileID: 2454365991735910925, guid: b1d95c04dd54e434aa65855a0f77d30f, type: 3}
+    - {fileID: 124078560223293899, guid: a72c2cd1520039b4084a4a33dfeccf7e, type: 3}
+    - {fileID: 4032408409230002204, guid: a007978aa14da3945b0f6655f65cc278, type: 3}
+    - {fileID: 5372832904957828770, guid: f005021ceced8b240983e71a3d481180, type: 3}
+    - {fileID: 836269480616060249, guid: 664a4dc6e997f5f47a9233db911328ac, type: 3}
   - chessPieces:
-    - {fileID: 4959364853543345168, guid: a202952093cccda4e8cd48914beb2a5e, type: 3}
+    - {fileID: 6721531595539307667, guid: 391882f14be491c40962add653844907, type: 3}
+    - {fileID: 5200713017520990747, guid: f1fc282519e5c4a4daaa864f9c3d446f, type: 3}
+    - {fileID: 259992922137596076, guid: 85ad2c556fdbd5747ac7f5f67f10e59b, type: 3}
+    - {fileID: 2656427573045285251, guid: 1c0f2faf14460a5478057fd4e0575576, type: 3}
+    - {fileID: 8515314385501254092, guid: be3573ba2ba53ea4f8979e64874c493d, type: 3}

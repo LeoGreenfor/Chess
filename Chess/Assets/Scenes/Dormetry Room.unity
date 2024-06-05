@@ -8416,7 +8416,7 @@ MonoBehaviour:
   _objOutline: {fileID: 6694689120613361439}
   _eventCanvas: {fileID: 251781334}
   terminal: {fileID: 228107941}
-  delaySeconds: 5
+  delaySeconds: 1
 --- !u!65 &6694689120613361441
 BoxCollider:
   m_ObjectHideFlags: 0

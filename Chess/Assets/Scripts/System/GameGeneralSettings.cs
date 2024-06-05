@@ -7,6 +7,7 @@ public class GameGeneralSettings : ScriptableObject
 {
     public string SaveGameFilePath;
     public ChessPiecesPrefabs[] chessPiecesPrefabs;
+
     [System.Serializable]
     public class ChessPiecesPrefabs
     {
