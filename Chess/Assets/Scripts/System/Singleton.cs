@@ -80,5 +80,4 @@ namespace Plugins.MissionCore.Core
         }
         #endregion
     }
-    //Free candy!
 }

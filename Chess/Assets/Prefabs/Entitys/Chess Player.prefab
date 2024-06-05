@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 5880735057082123066, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
       propertyPath: m_Name
-      value: Chess Player Variant
+      value: Chess Player
       objectReference: {fileID: 0}
     - target: {fileID: 6545772931679607168, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6545772931679607168, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 6545772931679607168, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -53.100002
+      value: 0.099998474
       objectReference: {fileID: 0}
     - target: {fileID: 6545772931679607168, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
@@ -41,17 +41,17 @@ PrefabInstance:
     - target: {fileID: 6545772931679607168, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6545772931679607168, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6545772931679607168, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6545772931679607168, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
@@ -70,7 +70,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5671146422674557840, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 2647779828738462668, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
+    - {fileID: 2303089638896287098, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2318335101208655668, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5880735057082123066, guid: cc8d8f4b8ad913148ba0579f80a34f46,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2697866358459456876}
   m_SourcePrefab: {fileID: 100100000, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
+--- !u!1 &1691150992855137553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5880735057082123066, guid: cc8d8f4b8ad913148ba0579f80a34f46,
+    type: 3}
+  m_PrefabInstance: {fileID: 5108416502449372715}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2697866358459456876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691150992855137553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fe475a0d925d84980619783b153f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goToX: 0
+  goToY: 0
+  isMoveByStraight: 0
+  isMoveByDiagonal: 0
+  moveTime: 0.8
+  isOnTurn: 0

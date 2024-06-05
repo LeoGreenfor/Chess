@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(IEntity))]
@@ -30,18 +31,22 @@ public abstract class EntityController : MonoBehaviour
 
     public virtual void MoveTo(Transform newTransform)
     {
+        StartCoroutine(MoveToPosition(newTransform.position, moveTime));
         GetOnTurn(false);
-
+    }
+    private IEnumerator MoveToPosition(Vector3 newPosition, float time)
+    {
         Vector3 startPosition = transform.position;
         float elapsedTime = 0;
 
-        while (elapsedTime < moveTime)
+        while (elapsedTime < time)
         {
-            transform.position = Vector3.Lerp(startPosition, newTransform.position, (elapsedTime / moveTime));
+            transform.position = Vector3.Lerp(startPosition, newPosition, (elapsedTime / time));
             elapsedTime += Time.deltaTime;
+            yield return null;
         }
 
-        transform.position = newTransform.position;
+        transform.position = newPosition;
     }
 
     protected void GetOnTurn(bool value)

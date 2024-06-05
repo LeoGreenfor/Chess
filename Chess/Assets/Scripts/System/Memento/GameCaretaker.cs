@@ -6,16 +6,16 @@ using UnityEngine;
 
 public class GameCaretaker : MonoBehaviour
 {
-    private static List<IMemento> _mementos = new List<IMemento>();
+    private static List<IMemento> _mementos;
 
-    private static GameManager _originator = null;
+    private static GameManager _originator;
 
     private void Start()
     {
-        _originator = GetComponent<GameManager>();
+        _originator = GameManager.Instance;
     }
 
-    public static void Backup()
+    public static void Backup(Player player)
     {
         Console.WriteLine("\nCaretaker: Saving Originator's state...");
         _mementos.Add(_originator.Save());

@@ -7,5 +7,5 @@ public interface IMemento
 {
     ChessSide GetPlayerChessSide();
     int GetLastLevelNumber();
-    Player GetPlayer();
+    PlayerData GetPlayer();
 }

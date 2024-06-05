@@ -8,11 +8,13 @@ public class ChessBoardHandler : MonoBehaviour
     [SerializeField] private ChessBoardCell[] cells;
     [SerializeField] private ChessPieceController[] pieces;
     [SerializeField] private PlayerController chessPlayer;
+    [SerializeField] private Camera boardCamera;
 
     public Action<bool> OnGameStateChange;
     public Action OnPlayerMakeMove;
 
     public bool IsGameBegin {  get; private set; }
+    public int WinsCounts;
 
     private void Start()
     {
@@ -27,12 +29,18 @@ public class ChessBoardHandler : MonoBehaviour
     private void SetBeginGame(bool state)
     {
         IsGameBegin = state;
+        boardCamera.gameObject.SetActive(IsGameBegin);
+
+        if (IsGameBegin)
+        {
+            SetChessPieces();
+        }
     }
 
-    private void FixedUpdate()
+    private void SetChessPieces()
     {
-        if (!IsGameBegin) return;
-        
+        int piecesCount = WinsCounts++;
+
 
     }
 

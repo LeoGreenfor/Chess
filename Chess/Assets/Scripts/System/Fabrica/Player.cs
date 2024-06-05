@@ -7,19 +7,31 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour, IEntity
 {
-    [Header("Stats")]
-    [SerializeField] private float fullHealth;
-    [SerializeField] private float strength;
-    [SerializeField] private float defence;
+    public float FullHealth {  get; private set; }
+    public float Strength { get; private set; }
+    public float Defence { get; private set; }
 
     public void Attack()
     {
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// Creates Player with Lv1 - pawn
+    /// </summary>
     public void Create()
     {
-        throw new NotImplementedException();
+        FullHealth = 10f;
+        Strength = 5f;
+        Defence = 5f;
+    }
+    public void SetStats(float fullHealth, float strength, float defence, Transform transform)
+    {
+        FullHealth = fullHealth;
+        Strength = strength;
+        Defence = defence;
+        gameObject.transform.position = transform.position;
+        gameObject.transform.rotation = transform.rotation;
     }
 
     public void Destroy()

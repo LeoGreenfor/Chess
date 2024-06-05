@@ -27,16 +27,20 @@ public class MenuLaptopController : MenuController
         {
             terminal.SetIsCanEnterCommand(true, "ChooseSide");
             GameManager.Instance.SetPlayerSide(terminal.GetInputFromTerminal().Replace("/", ""));
-            StartCoroutine(LoadingCooldown(2));
+
+            var player = new PlayerData();
+            GameManager.Instance.LastLevelNumber = 1;
+            GameManager.Instance.SaveGame(player);
+
+            StartCoroutine(LoadingCooldown(GameManager.Instance.LastLevelNumber));
         }
         else terminal.SetIsCanEnterCommand(false, "ChooseSide");
-        
-        //StartCoroutine(LoadingCooldown(1));
     }
 
     public void LoadGame()
     {
-        StartCoroutine(LoadingCooldown(2));
+        GameManager.Instance.LoadGame();
+        StartCoroutine(LoadingCooldown(GameManager.Instance.LastLevelNumber));
     }
 
     private IEnumerator LoadingCooldown(int sceneIndex)
