@@ -11,8 +11,8 @@ public class ChessPiece : MonoBehaviour, IEntity
     [SerializeField] private float deathDelay;
 
     private float _currentHealth;
-    private int _currentX;
-    private int _currentY;
+    public int CurrentX;
+    public int CurrentY;
     private Action onGettingDamage;
 
     public void Create()
@@ -33,8 +33,11 @@ public class ChessPiece : MonoBehaviour, IEntity
     public void Spawn(ChessBoardCell cell)
     {
         _currentHealth = fullHealth;
-        _currentX = cell.CellToIntCoordinates()[0];
-        _currentY = cell.CellToIntCoordinates()[1];
+        CurrentX = cell.CellToIntCoordinates()[0];
+        CurrentY = cell.CellToIntCoordinates()[1];
+        var chesspieceRotation = new Quaternion(0, 180, 0, 0);
+
+        Instantiate(gameObject, cell.transform.position, chesspieceRotation);
     }
 
     public void Attack()

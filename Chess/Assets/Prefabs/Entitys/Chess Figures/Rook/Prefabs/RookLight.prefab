@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33667145997053058}
   - component: {fileID: 23923637149797032}
   - component: {fileID: 5200713017520990747}
+  - component: {fileID: -6571241224350078753}
   m_Layer: 0
   m_Name: RookLight
   m_TagString: Untagged
@@ -99,7 +100,24 @@ MonoBehaviour:
   fullHealth: 20
   attackStreght: 6
   deathDelay: 0
+  CurrentX: 0
+  CurrentY: 0
+--- !u!114 &-6571241224350078753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971375302472462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec2dd700ffa7b34ea158ec76cc4d15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentCell: {fileID: 0}
   goToX: 4
   goToY: 4
   isMoveByStraight: 1
   isMoveByDiagonal: 0
+  moveTime: 1
+  isOnTurn: 0

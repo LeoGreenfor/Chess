@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33923300791892018}
   - component: {fileID: 23259757595946094}
   - component: {fileID: 836269480616060249}
+  - component: {fileID: 3661385497656647613}
   m_Layer: 0
   m_Name: QueenDark
   m_TagString: Untagged
@@ -99,7 +100,24 @@ MonoBehaviour:
   fullHealth: 80
   attackStreght: 20
   deathDelay: 0
+  CurrentX: 0
+  CurrentY: 0
+--- !u!114 &3661385497656647613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471985601831630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec2dd700ffa7b34ea158ec76cc4d15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentCell: {fileID: 0}
   goToX: 4
   goToY: 4
   isMoveByStraight: 1
   isMoveByDiagonal: 1
+  moveTime: 1
+  isOnTurn: 0

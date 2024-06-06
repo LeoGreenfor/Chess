@@ -6,7 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(IEntity))]
 public abstract class EntityController : MonoBehaviour
 {
-    public IEntity _Entity;
+    public IEntity Entity;
+
+    public ChessBoardCell CurrentCell;
 
     [Header("Movements")]
     [SerializeField] private int goToX;
@@ -17,9 +19,11 @@ public abstract class EntityController : MonoBehaviour
 
     [SerializeField] private bool isOnTurn;
 
-    private void SpawnEntity(ChessBoardCell cell)
+    public void SpawnEntity(ChessBoardCell cell)
     {
-        _Entity.Spawn(cell);
+        Entity = GetComponent<IEntity>();
+        Entity.Spawn(cell);
+        CurrentCell = cell;
     }
 
     protected abstract void CreateEntity();
@@ -29,10 +33,25 @@ public abstract class EntityController : MonoBehaviour
         GetOnTurn(false);
     }
 
-    public virtual void MoveTo(Transform newTransform)
+    public virtual void MoveTo(ChessBoardCell newCell)
     {
-        StartCoroutine(MoveToPosition(newTransform.position, moveTime));
-        GetOnTurn(false);
+        int currentX = CurrentCell.CellToIntCoordinates()[0];
+        int currentY = CurrentCell.CellToIntCoordinates()[1];
+
+        int newX = newCell.CellToIntCoordinates()[0];
+        int newY = newCell.CellToIntCoordinates()[1];
+
+        int differenceX = Mathf.Abs(newX - currentX);
+        int differenceY = Mathf.Abs(newY - currentY);
+        bool isInRadiusX = differenceX <= goToX, isInRadiusY = differenceY <= goToY;
+
+        if ((isMoveByStraight && (isInRadiusX && currentY == newY)) // move horizontally
+            || ((isMoveByStraight && (currentX == newX && isInRadiusY))) // move vertically
+            || (isMoveByDiagonal && isInRadiusX && isInRadiusY && currentY != newY && currentX != newX)) // move by diagonal
+        {
+            StartCoroutine(MoveToPosition(newCell.transform.position, moveTime));
+            GetOnTurn(false);
+        }
     }
     private IEnumerator MoveToPosition(Vector3 newPosition, float time)
     {

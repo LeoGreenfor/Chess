@@ -14,7 +14,7 @@ public class HorseController : ChessPieceController
 
     }
 
-    public override void MoveTo(Transform newTransform)
+    public override void MoveTo(ChessBoardCell newTransform)
     {
 
     }

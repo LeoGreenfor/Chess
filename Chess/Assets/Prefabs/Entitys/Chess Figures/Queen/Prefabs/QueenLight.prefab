@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33386584874682660}
   - component: {fileID: 23714218359197728}
   - component: {fileID: 8515314385501254092}
+  - component: {fileID: -193335674961526702}
   m_Layer: 0
   m_Name: QueenLight
   m_TagString: Untagged
@@ -99,7 +100,24 @@ MonoBehaviour:
   fullHealth: 80
   attackStreght: 20
   deathDelay: 0
+  CurrentX: 0
+  CurrentY: 0
+--- !u!114 &-193335674961526702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945632463053948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec2dd700ffa7b34ea158ec76cc4d15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentCell: {fileID: 0}
   goToX: 4
   goToY: 4
   isMoveByStraight: 1
   isMoveByDiagonal: 1
+  moveTime: 1
+  isOnTurn: 0

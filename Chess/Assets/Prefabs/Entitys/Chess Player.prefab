@@ -72,6 +72,7 @@ PrefabInstance:
     - {fileID: 5671146422674557840, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
     - {fileID: 2647779828738462668, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
     - {fileID: 2303089638896287098, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
+    - {fileID: 487420415498777180, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2318335101208655668, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
     m_AddedGameObjects: []
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fe475a0d925d84980619783b153f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentCell: {fileID: 0}
   goToX: 0
   goToY: 0
   isMoveByStraight: 0

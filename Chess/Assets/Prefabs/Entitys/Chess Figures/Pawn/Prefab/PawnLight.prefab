@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33106061487518736}
   - component: {fileID: 23160403841118764}
   - component: {fileID: 6721531595539307667}
+  - component: {fileID: -8843568371324355602}
   m_Layer: 0
   m_Name: PawnLight
   m_TagString: Untagged
@@ -99,7 +100,24 @@ MonoBehaviour:
   fullHealth: 7
   attackStreght: 2
   deathDelay: 0
+  CurrentX: 0
+  CurrentY: 0
+--- !u!114 &-8843568371324355602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006356879557798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec2dd700ffa7b34ea158ec76cc4d15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentCell: {fileID: 0}
   goToX: 1
   goToY: 1
   isMoveByStraight: 1
   isMoveByDiagonal: 0
+  moveTime: 1
+  isOnTurn: 0

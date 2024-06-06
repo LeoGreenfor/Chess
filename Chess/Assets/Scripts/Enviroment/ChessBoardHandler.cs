@@ -7,9 +7,9 @@ using static GameGeneralSettings;
 
 public class ChessBoardHandler : MonoBehaviour
 {
-    [SerializeField] private ChessBoardCell[] cells;
-    [SerializeField] private ChessPiece[] pieces;
-    [SerializeField] private PlayerController chessPlayer;
+    [SerializeField] private BoardCells[] rows;
+    [SerializeField] private ChessPieceController[] pieces;
+    [SerializeField] private PlayerController chessPlayerController;
     [SerializeField] private Camera boardCamera;
 
     public Action<bool> OnGameStateChange;
@@ -26,13 +26,22 @@ public class ChessBoardHandler : MonoBehaviour
         OnGameStateChange += SetBeginGame;
 
         _boardSideToInt = GameManager.Instance.MainChessSideIndex;
-        pieces = GameManager.Instance.generalSettings.chessPiecesPrefabs[_boardSideToInt].chessPieces;
+
+        ChessPiece[] chessPieces = GameManager.Instance.generalSettings.chessPiecesPrefabs[_boardSideToInt].chessPieces;
+        pieces = new ChessPieceController[chessPieces.Length];
+
+        for (int i = 0; i < chessPieces.Length; i++)
+        {
+            Debug.LogError($"chessPieces.Length: {chessPieces.Length}, pieces.Length: {pieces.Length}, i: {i}, " +
+                $"have controller: {chessPieces[i].GetComponent<ChessPieceController>()}");
+            pieces[i] = chessPieces[i].GetComponent<ChessPieceController>();
+        }
+        
         _levelNumber = SceneManager.GetActiveScene().buildIndex;
 
-        for (int i = 0; i < cells.Length; i++)
-        {
-            cells[i].OnPlayerMove += MovePlayer;
-        }
+        for (int i = 0; i < rows.Length; i++)
+            for (int j = 0; j < rows[i].cells.Length; j++)
+                rows[i].cells[j].OnPlayerMove += MovePlayer;
     }
 
     private void SetBeginGame(bool state)
@@ -43,47 +52,37 @@ public class ChessBoardHandler : MonoBehaviour
         if (IsGameBegin)
         {
             SetChessPieces();
+
+            chessPlayerController.SpawnEntity(rows[0].cells[1]);
         }
     }
 
     private void SetChessPieces()
     {
         int piecesCount = WinsCounts + 1;
-        var chesspieceRotation = new Quaternion(0, 180, 0, 0);
-
-        Debug.LogError(piecesCount + " " + cells.Length);
+        int index = rows.Length - 1;
 
         for (int i = 0; i < piecesCount; i++)
         {
-            int index = cells.Length - 1 - i;
-
-            if (index >= 0) // Перевірка, чи індекс не виходить за межі масиву
-            {
-                Debug.LogError(cells[index]);
-                if (index % 2 == 0) Instantiate(pieces[_levelNumber].gameObject, cells[index].transform.position, chesspieceRotation);
-                else Instantiate(pieces[_levelNumber + 1].gameObject, cells[index].transform.position, chesspieceRotation);
-            }
-            else
-            {
-                Debug.LogError("Індекс виходить за межі масиву");
-                break;
-            }
+            if (i % 2 == 0) pieces[_levelNumber].SpawnEntity(rows[index].cells[i]);
+            else pieces[_levelNumber + 1].SpawnEntity(rows[index].cells[i]);
+            
         }
-
-        /*for (int i = cells.Length - 1; i > (cells.Length - piecesCount); i--)
-        {
-            Debug.LogError("a");
-            Instantiate(pieces[_levelNumber].gameObject, cells[i].transform.position, chesspieceRotation);
-        }*/
     }
 
-    private void MovePlayer(Transform newPlayerPosition)
+    private void MovePlayer(ChessBoardCell newPlayerPosition)
     {
-        chessPlayer.MoveTo(newPlayerPosition);
+        chessPlayerController.MoveTo(newPlayerPosition);
     }
 
     private void MakeMove()
     {
 
+    }
+
+    [System.Serializable]
+    private class BoardCells
+    {
+        public ChessBoardCell[] cells;
     }
 }

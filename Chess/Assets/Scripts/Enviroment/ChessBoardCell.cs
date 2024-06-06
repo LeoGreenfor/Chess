@@ -12,7 +12,7 @@ public class ChessBoardCell : MonoBehaviour
 
     [SerializeField] private Outline _objOutline;
 
-    public Action<Transform> OnPlayerMove;
+    public Action<ChessBoardCell> OnPlayerMove;
 
     public string CellOriginalCoordinates()
     {
@@ -42,6 +42,6 @@ public class ChessBoardCell : MonoBehaviour
 
     private void OnMouseUp()
     {
-        OnPlayerMove?.Invoke(gameObject.transform);
+        OnPlayerMove?.Invoke(this);
     }
 }

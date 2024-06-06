@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33961714295525734}
   - component: {fileID: 23756955892116760}
   - component: {fileID: 259992922137596076}
+  - component: {fileID: -4649253894603867532}
   m_Layer: 0
   m_Name: HorseLight
   m_TagString: Untagged
@@ -99,7 +100,24 @@ MonoBehaviour:
   fullHealth: 50
   attackStreght: 12
   deathDelay: 0
-  goToX: 2
-  goToY: 2
+  CurrentX: 0
+  CurrentY: 0
+--- !u!114 &-4649253894603867532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992623236052302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35e50f70819d6459927eabc1407a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentCell: {fileID: 0}
+  goToX: 0
+  goToY: 0
   isMoveByStraight: 0
   isMoveByDiagonal: 0
+  moveTime: 0
+  isOnTurn: 0

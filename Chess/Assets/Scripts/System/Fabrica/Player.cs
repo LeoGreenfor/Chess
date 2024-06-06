@@ -11,6 +11,11 @@ public class Player : MonoBehaviour, IEntity
     public float Strength { get; private set; }
     public float Defence { get; private set; }
 
+    private float _currentHealth;
+    public int CurrentX;
+    public int CurrentY;
+    private Action onGettingDamage;
+
     public void Attack()
     {
         throw new NotImplementedException();
@@ -56,6 +61,10 @@ public class Player : MonoBehaviour, IEntity
 
     public void Spawn(ChessBoardCell cell)
     {
-        throw new NotImplementedException();
+        _currentHealth = FullHealth;
+        CurrentX = cell.CellToIntCoordinates()[0];
+        CurrentY = cell.CellToIntCoordinates()[1];
+
+        Instantiate(gameObject, cell.transform.position, Quaternion.identity);
     }
 }

@@ -60,6 +60,7 @@ public class GameManager : Singleton<GameManager>
 
         SaveGame(PlayerData);
 
+        player.GetComponent<PlayerMovementController>().MainCamera.enabled = false;
         _chessBoardHandler.OnGameStateChange?.Invoke(true);
 
         Cursor.visible = true;
@@ -71,6 +72,11 @@ public class GameManager : Singleton<GameManager>
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        var player = FindFirstObjectByType<PlayerMovementController>().GetComponent<Player>();
+        player.GetComponent<PlayerMovementController>().MainCamera.enabled = true;
+
+        SaveGame(PlayerData);
     }
 
     #region Memento 
