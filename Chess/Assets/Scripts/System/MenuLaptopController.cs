@@ -13,7 +13,7 @@ public class MenuLaptopController : MenuController
 
     private void OnMouseDown()
     {
-        terminal.TurnOn(true);
+        terminal.TurnOn(true);        
     }
 
     public void StartNewGame()
