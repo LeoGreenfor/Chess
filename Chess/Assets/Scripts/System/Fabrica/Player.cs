@@ -10,6 +10,7 @@ public class Player : MonoBehaviour, IEntity
     public float FullHealth {  get; private set; }
     public float Strength { get; private set; }
     public float Defence { get; private set; }
+    public int Level { get; private set; }
 
     private float _currentHealth;
     public int CurrentX;
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour, IEntity
         FullHealth = 10f;
         Strength = 5f;
         Defence = 5f;
+        Level = 1;
     }
     public void SetStats(float fullHealth, float strength, float defence, Transform transform)
     {
@@ -37,6 +39,17 @@ public class Player : MonoBehaviour, IEntity
         Defence = defence;
         gameObject.transform.position = transform.position;
         gameObject.transform.rotation = transform.rotation;
+    }
+    public void SetStats(float fullHealth, float strength, float defence)
+    {
+        FullHealth = fullHealth;
+        Strength = strength;
+        Defence = defence;
+    }
+
+    public void UpdateLevel(int level)
+    {
+        Level = level;
     }
 
     public void Destroy()
@@ -59,12 +72,14 @@ public class Player : MonoBehaviour, IEntity
         throw new NotImplementedException();
     }
 
-    public void Spawn(ChessBoardCell cell)
+    public EntityController Spawn(ChessBoardCell cell)
     {
         _currentHealth = FullHealth;
         CurrentX = cell.CellToIntCoordinates()[0];
         CurrentY = cell.CellToIntCoordinates()[1];
 
-        Instantiate(gameObject, cell.transform.position, Quaternion.identity);
+        var entity = Instantiate(gameObject, cell.transform.position, Quaternion.identity);
+
+        return entity.GetComponent<PlayerController>();
     }
 }

@@ -8,8 +8,13 @@ using static GameGeneralSettings;
 public class ChessBoardHandler : MonoBehaviour
 {
     [SerializeField] private BoardCells[] rows;
-    [SerializeField] private ChessPieceController[] pieces;
-    [SerializeField] private PlayerController chessPlayerController;
+
+    [SerializeField] private ChessPieceController[] piecesPrefabs;
+    [SerializeField] private ChessPieceController[] piecesOnBoard;
+
+    [SerializeField] private PlayerController chessPlayerControllerPrefab;
+    [SerializeField] private PlayerController chessPlayer;
+
     [SerializeField] private Camera boardCamera;
 
     public Action<bool> OnGameStateChange;
@@ -24,17 +29,18 @@ public class ChessBoardHandler : MonoBehaviour
     private void Start()
     {
         OnGameStateChange += SetBeginGame;
+        OnPlayerMakeMove += MakeMove;
 
         _boardSideToInt = GameManager.Instance.MainChessSideIndex;
 
         ChessPiece[] chessPieces = GameManager.Instance.generalSettings.chessPiecesPrefabs[_boardSideToInt].chessPieces;
-        pieces = new ChessPieceController[chessPieces.Length];
+        piecesPrefabs = new ChessPieceController[chessPieces.Length];
 
         for (int i = 0; i < chessPieces.Length; i++)
         {
-            Debug.LogError($"chessPieces.Length: {chessPieces.Length}, pieces.Length: {pieces.Length}, i: {i}, " +
+            Debug.LogError($"chessPieces.Length: {chessPieces.Length}, pieces.Length: {piecesPrefabs.Length}, i: {i}, " +
                 $"have controller: {chessPieces[i].GetComponent<ChessPieceController>()}");
-            pieces[i] = chessPieces[i].GetComponent<ChessPieceController>();
+            piecesPrefabs[i] = chessPieces[i].GetComponent<ChessPieceController>();
         }
         
         _levelNumber = SceneManager.GetActiveScene().buildIndex;
@@ -53,7 +59,13 @@ public class ChessBoardHandler : MonoBehaviour
         {
             SetChessPieces();
 
-            chessPlayerController.SpawnEntity(rows[0].cells[1]);
+            var entity = chessPlayerControllerPrefab.SpawnEntity(rows[0].cells[1]);
+            chessPlayer = entity.GetComponent<PlayerController>();
+            
+            var player = chessPlayer.gameObject.GetComponent<Player>();
+            player.UpdateLevel(_levelNumber);
+            chessPlayer.CreateEntity(player);
+            chessPlayer.SetCurrentCell(rows[0].cells[1]);
         }
     }
 
@@ -61,18 +73,31 @@ public class ChessBoardHandler : MonoBehaviour
     {
         int piecesCount = WinsCounts + 1;
         int index = rows.Length - 1;
+        piecesOnBoard = new ChessPieceController[piecesCount];
 
         for (int i = 0; i < piecesCount; i++)
         {
-            if (i % 2 == 0) pieces[_levelNumber].SpawnEntity(rows[index].cells[i]);
-            else pieces[_levelNumber + 1].SpawnEntity(rows[index].cells[i]);
+            if (i % 2 == 0) 
+            {
+                var entity = piecesPrefabs[_levelNumber].SpawnEntity(rows[index].cells[i]);
+                piecesOnBoard[i] = entity as ChessPieceController;
+                piecesOnBoard[i].SetCurrentCell(rows[index].cells[i]);
+            }
+            else
+            {
+                var entity = piecesPrefabs[_levelNumber + 1].SpawnEntity(rows[index].cells[i]);
+                piecesOnBoard[i] = entity as ChessPieceController;
+                piecesOnBoard[i].SetCurrentCell(rows[index].cells[i]);
+            }
             
         }
     }
 
     private void MovePlayer(ChessBoardCell newPlayerPosition)
     {
-        chessPlayerController.MoveTo(newPlayerPosition);
+        chessPlayer.SetOnTurn(true);
+        chessPlayer.MoveTo(newPlayerPosition);
+        OnPlayerMakeMove?.Invoke();
     }
 
     private void MakeMove()

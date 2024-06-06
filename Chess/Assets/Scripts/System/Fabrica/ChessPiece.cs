@@ -10,14 +10,20 @@ public class ChessPiece : MonoBehaviour, IEntity
     [SerializeField] private float attackStreght;
     [SerializeField] private float deathDelay;
 
-    private float _currentHealth;
     public int CurrentX;
     public int CurrentY;
+
+    private float _currentHealth;
     private Action onGettingDamage;
+    private Player _player;
 
     public void Create()
     {
         onGettingDamage += Kill;
+    }
+    public void SetPlayer(Player player)
+    {
+        _player = player;
     }
 
     public void Kill()
@@ -30,14 +36,16 @@ public class ChessPiece : MonoBehaviour, IEntity
         Destroy(this.gameObject);
     }
 
-    public void Spawn(ChessBoardCell cell)
+    public EntityController Spawn(ChessBoardCell cell)
     {
         _currentHealth = fullHealth;
         CurrentX = cell.CellToIntCoordinates()[0];
         CurrentY = cell.CellToIntCoordinates()[1];
         var chesspieceRotation = new Quaternion(0, 180, 0, 0);
 
-        Instantiate(gameObject, cell.transform.position, chesspieceRotation);
+        var entity = Instantiate(gameObject, cell.transform.position, chesspieceRotation);
+
+        return entity.GetComponent<ChessPieceController>();
     }
 
     public void Attack()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HorseController : ChessPieceController
 {
-    protected override void CreateEntity()
+    public override void CreateEntity(Player player)
     {
 
     }
@@ -14,7 +14,7 @@ public class HorseController : ChessPieceController
 
     }
 
-    public override void MoveTo(ChessBoardCell newTransform)
+    public override void MoveTo(ChessBoardCell newCell)
     {
 
     }

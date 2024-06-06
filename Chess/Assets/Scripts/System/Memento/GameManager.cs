@@ -181,11 +181,7 @@ public class PlayerData
     public float fullHealth;
     public float strength;
     public float defence;
-    // Transform
-    //public Transform transform;
-    //public Vector3 position;
     public float[] position = new float[3];
-    //public Quaternion rotation;
 
     public PlayerData(float pFullHealth, float pStrength, float pDefence, Transform pTransform)
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IEntity
 {
     void Create();
-    void Spawn(ChessBoardCell cell);
+    EntityController Spawn(ChessBoardCell cell);
     void Kill();
     void Attack();
     void GetDamage(float damage);

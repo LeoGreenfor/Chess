@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ChessPieceController : EntityController
 {
-    protected override void CreateEntity()
+    public override void CreateEntity(Player player)
     {
-        throw new System.NotImplementedException();
+        var chessPiece = Entity as ChessPiece;
+        chessPiece.SetPlayer(player);
     }
-
-    /*protected override void MoveTo(Transform newTransform)
-    {
-        transform.position = Vector3.Lerp(transform.position, newTransform.position, Time.deltaTime * moveSpeed);
-    }*/
 
     protected override void Retreat()
     {

@@ -121,7 +121,10 @@ MonoBehaviour:
     - {fileID: 3966440839036081093}
     - {fileID: 2632013980249075138}
     - {fileID: 6275951501052298542}
-  pieces: []
+  piecesPrefabs: []
+  piecesOnBoard: []
+  chessPlayerControllerPrefab: {fileID: 2697866358459456876, guid: 62d448f497ee3fa4a97c2e25897cc854,
+    type: 3}
   chessPlayer: {fileID: 0}
   boardCamera: {fileID: 0}
   WinsCounts: 0
@@ -307,7 +310,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -615,7 +618,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -792,7 +795,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -1045,7 +1048,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -1151,7 +1154,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -1252,7 +1255,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -1358,7 +1361,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -1464,7 +1467,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -1570,7 +1573,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -1747,7 +1750,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -2035,7 +2038,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
@@ -2283,7 +2286,7 @@ PrefabInstance:
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}
       propertyPath: CooLetter
-      value: 68
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 6306619624762843886, guid: c9cfcdff79bd24f4bb889c79d0dc0e03,
         type: 3}

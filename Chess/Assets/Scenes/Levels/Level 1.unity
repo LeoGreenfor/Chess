@@ -2126,17 +2126,6 @@ PrefabInstance:
       propertyPath: boardCamera
       value: 
       objectReference: {fileID: 556056282}
-    - target: {fileID: 6533823618124423893, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: chessPlayer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6533823618124423893, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: chessPlayerController
-      value: 
-      objectReference: {fileID: 2697866358459456876, guid: 62d448f497ee3fa4a97c2e25897cc854,
-        type: 3}
     - target: {fileID: 7585973834567113599, guid: 9c61493e91c116447933c7dcbc4accac,
         type: 3}
       propertyPath: m_RootOrder
