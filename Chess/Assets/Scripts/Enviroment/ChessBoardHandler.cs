@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GameGeneralSettings;
 
 public class ChessBoardHandler : MonoBehaviour
 {
+    [Header("Game")]
     [SerializeField] private BoardCells[] rows;
 
     [SerializeField] private ChessPieceController[] piecesPrefabs;
@@ -15,7 +17,11 @@ public class ChessBoardHandler : MonoBehaviour
     [SerializeField] private PlayerController chessPlayerControllerPrefab;
     [SerializeField] private PlayerController chessPlayer;
 
+    [Header("Settings")]
     [SerializeField] private Camera boardCamera;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private TMP_Text PlayerInfo;
+    [SerializeField] private TMP_Text BoardInfo;
 
     public Action<bool> OnGameStateChange;
     public Action OnPlayerMakeMove;
@@ -54,6 +60,7 @@ public class ChessBoardHandler : MonoBehaviour
     {
         IsGameBegin = state;
         boardCamera.gameObject.SetActive(IsGameBegin);
+        canvas.gameObject.SetActive(IsGameBegin);
 
         if (IsGameBegin)
         {
@@ -67,6 +74,9 @@ public class ChessBoardHandler : MonoBehaviour
 
 
             SetChessPieces();
+
+            PlayerInfo.text = chessPlayer.GetComponent<Player>().GetPlayerInfo();
+            BoardInfo.text = GetBoardInfo();
         }
     }
 
@@ -108,6 +118,9 @@ public class ChessBoardHandler : MonoBehaviour
     private void BeginMove()
     {
         StartCoroutine(MakeMove());
+
+        PlayerInfo.text = chessPlayer.GetComponent<Player>().GetPlayerInfo();
+        BoardInfo.text = GetBoardInfo();
     }
 
     private IEnumerator MakeMove()
@@ -177,6 +190,17 @@ public class ChessBoardHandler : MonoBehaviour
 
         }
 
+    }
+
+    private string GetBoardInfo()
+    {
+        var levelName = "";
+        if (_levelNumber == 1) levelName = "Wheat field";
+        if (_levelNumber == 2) levelName = "Forest";
+        if (_levelNumber == 3) levelName = "Old Castle";
+        if (_levelNumber == 4) levelName = "Enemy`s base";
+
+        return $"The board\nChess pieces left: {piecesOnBoard.Length}\nLevel name: {levelName}";
     }
 
     [System.Serializable]

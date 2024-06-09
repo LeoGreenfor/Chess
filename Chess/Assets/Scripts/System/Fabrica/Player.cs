@@ -20,6 +20,17 @@ public class Player : MonoBehaviour, IEntity
     public void Attack(ChessBoardCell cell)
     {
     }
+    public string GetPlayerInfo()
+    {
+        var levelName = "";
+
+        if (Level == 1) levelName = "Pawn";
+        if (Level == 2) levelName = "Rook";
+        if (Level == 3) levelName = "Bishop";
+        if (Level == 4) levelName = "Queen";
+
+        return $"Level: {levelName}\nHealth: {_currentHealth}\nStrength: {Strength}";
+    }
 
     /// <summary>
     /// Creates Player with Lv1 - pawn
@@ -38,12 +49,16 @@ public class Player : MonoBehaviour, IEntity
         Defence = defence;
         gameObject.transform.position = transform.position;
         gameObject.transform.rotation = transform.rotation;
+
+        _currentHealth = fullHealth;
     }
     public void SetStats(float fullHealth, float strength, float defence)
     {
         FullHealth = fullHealth;
         Strength = strength;
         Defence = defence;
+
+        _currentHealth = fullHealth;
     }
 
     public void UpdateLevel(int level)
