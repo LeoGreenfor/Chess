@@ -47,7 +47,6 @@ public abstract class EntityController : MonoBehaviour
         if (isOnTurn)
         {
             bool isInRadius = IsCorrectCoordinates(newCell);
-            Debug.LogError("move to 2");
 
             if (isInRadius)
             {
@@ -61,9 +60,6 @@ public abstract class EntityController : MonoBehaviour
     }
     private IEnumerator MoveToPosition(Vector3 newPosition, float time)
     {
-        Debug.LogError(Entity);
-        Debug.LogError("move to position");
-
         Vector3 startPosition = transform.position;
         float elapsedTime = 0;
 
@@ -82,7 +78,7 @@ public abstract class EntityController : MonoBehaviour
         isOnTurn = value;
     }
 
-    public int[] CorrectCoordinates()
+    public int[] CorrectCoordinates(int borderNumber, int borderLetter)
     {
         int[] coordinates = CurrentCell.CellToIntCoordinates();
         var randomValue = Random.Range(0, 10);
@@ -92,6 +88,9 @@ public abstract class EntityController : MonoBehaviour
             else newX = Random.Range(1, goToX);
         if (goToY <= 1) newY = 1;
         else newY = Random.Range(1, goToY);
+
+        if (coordinates[0] + newX > borderNumber) newX *= -1;
+        if (coordinates[1] + newY > borderLetter) newY *= -1;
 
         if (isMoveByStraight)
         {
@@ -131,6 +130,9 @@ public abstract class EntityController : MonoBehaviour
         }
         else if (isInRadiusX && isInRadiusY && isMoveByDiagonal)
             isInRadius = true;
+
+        /*Debug.LogError($"new cell {newCell}, current cell {CurrentCell};\n" +
+            $"is in radius x {isInRadiusX}, is in radius y {isInRadiusY}");*/
 
         if (newCell == CurrentCell) isInRadius = false;
 
