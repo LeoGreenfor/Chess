@@ -13,6 +13,7 @@ public class ChessBoardCell : MonoBehaviour
     [SerializeField] private Outline _objOutline;
 
     public Action<ChessBoardCell> OnPlayerMove;
+    public bool IsOccupied;
 
     public string CellOriginalCoordinates()
     {

@@ -5,8 +5,17 @@ using UnityEngine;
 
 public class PlayerController : EntityController
 {
+    public override EntityController SpawnEntity(ChessBoardCell cell)
+    {
+        Entity = GetComponent<Player>();
+        Debug.LogError(Entity);
+
+        return base.SpawnEntity(cell);
+    }
     public override void CreateEntity(Player player)
     {
+        base.CreateEntity(player);
+
         int playerLevel = player.Level;
 
         if (playerLevel == 1)
@@ -51,8 +60,8 @@ public class PlayerController : EntityController
         }
     }
 
-    protected override void Retreat()
+    public override void MakeMove(PlayerController player)
     {
-        throw new System.NotImplementedException();
+        base.MakeMove(player);
     }
 }

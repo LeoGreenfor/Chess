@@ -19,10 +19,8 @@ public abstract class EntityController : MonoBehaviour
 
     [SerializeField] private bool isOnTurn;
 
-    public EntityController SpawnEntity(ChessBoardCell cell)
+    public virtual EntityController SpawnEntity(ChessBoardCell cell)
     {
-        Entity = GetComponent<IEntity>();
-
         var entity = Entity.Spawn(cell);
         CurrentCell = cell;
 
@@ -33,51 +31,39 @@ public abstract class EntityController : MonoBehaviour
         CurrentCell = cell;
     }
 
-    public abstract void CreateEntity(Player player);
-
-    protected virtual void Retreat()
+    public virtual void CreateEntity(Player player)
     {
-        SetOnTurn(false);
+        this.Entity = GetComponent<IEntity>();
+    }
+
+    public virtual void MakeMove(PlayerController player)
+    {
+        SetIsOnTurn(false);
     }
 
     public virtual void MoveTo(ChessBoardCell newCell)
     {
+        Debug.LogError(Entity);
         if (isOnTurn)
         {
-            int currentX = CurrentCell.CellToIntCoordinates()[0];
-            int currentY = CurrentCell.CellToIntCoordinates()[1];
-
-            int newX = newCell.CellToIntCoordinates()[0];
-            int newY = newCell.CellToIntCoordinates()[1];
-
-            int differenceX = Mathf.Abs(newX - currentX);
-            int differenceY = Mathf.Abs(newY - currentY);
-            bool isInRadiusX = differenceX <= goToX, isInRadiusY = differenceY <= goToY;
-            bool isInRadius = false;
-
-            if (currentY == newY)
-            {
-                if (isInRadiusX && isMoveByStraight)
-                    isInRadius = true;
-            }
-            else if (currentX == newX)
-            {
-                if (isInRadiusY && isMoveByStraight)
-                    isInRadius = true;
-            }
-            else if (isInRadiusX && isInRadiusY && isMoveByDiagonal)
-                isInRadius = true;
+            bool isInRadius = IsCorrectCoordinates(newCell);
+            Debug.LogError("move to 2");
 
             if (isInRadius)
             {
                 StartCoroutine(MoveToPosition(newCell.transform.position, moveTime));
                 CurrentCell = newCell;
-                SetOnTurn(false);
+                SetIsOnTurn(false);
             }
+
+            newCell.IsOccupied = true;
         }
     }
     private IEnumerator MoveToPosition(Vector3 newPosition, float time)
     {
+        Debug.LogError(Entity);
+        Debug.LogError("move to position");
+
         Vector3 startPosition = transform.position;
         float elapsedTime = 0;
 
@@ -91,17 +77,63 @@ public abstract class EntityController : MonoBehaviour
         transform.position = newPosition;
     }
 
-    public void SetOnTurn(bool value)
+    public void SetIsOnTurn(bool value)
     {
         isOnTurn = value;
     }
 
     public int[] CorrectCoordinates()
     {
-        int[] coordinates = new int[2];
-        coordinates[0] = CurrentCell.CellToIntCoordinates()[0] + Random.Range(1, goToX);
-        coordinates[1] = CurrentCell.CellToIntCoordinates()[1] + Random.Range(1, goToY);
+        int[] coordinates = CurrentCell.CellToIntCoordinates();
+        var randomValue = Random.Range(0, 10);
+        int newX = 0, newY = 0;
+
+        if (goToX <= 1) newX = 1;
+            else newX = Random.Range(1, goToX);
+        if (goToY <= 1) newY = 1;
+        else newY = Random.Range(1, goToY);
+
+        if (isMoveByStraight)
+        {
+            if (randomValue % 2 == 0) coordinates[0] += newX;
+            else coordinates[1] += newY;
+        }
+        if (isMoveByDiagonal)
+        {
+            if (randomValue % 2 == 0) coordinates[1] += newY;
+            else coordinates[0] += newX;
+        }
 
         return coordinates;
+    }
+    public bool IsCorrectCoordinates(ChessBoardCell newCell)
+    {
+        int currentX = CurrentCell.CellToIntCoordinates()[0];
+        int currentY = CurrentCell.CellToIntCoordinates()[1];
+
+        int newX = newCell.CellToIntCoordinates()[0];
+        int newY = newCell.CellToIntCoordinates()[1];
+
+        int differenceX = Mathf.Abs(newX - currentX);
+        int differenceY = Mathf.Abs(newY - currentY);
+        bool isInRadiusX = differenceX <= goToX, isInRadiusY = differenceY <= goToY;
+        bool isInRadius = false;
+
+        if (currentY == newY)
+        {
+            if (isInRadiusX && isMoveByStraight)
+                isInRadius = true;
+        }
+        else if (currentX == newX)
+        {
+            if (isInRadiusY && isMoveByStraight)
+                isInRadius = true;
+        }
+        else if (isInRadiusX && isInRadiusY && isMoveByDiagonal)
+            isInRadius = true;
+
+        if (newCell == CurrentCell) isInRadius = false;
+
+        return isInRadius;
     }
 }

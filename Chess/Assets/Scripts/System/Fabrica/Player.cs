@@ -17,9 +17,8 @@ public class Player : MonoBehaviour, IEntity
     public int CurrentY;
     private Action onGettingDamage;
 
-    public void Attack()
+    public void Attack(ChessBoardCell cell)
     {
-        throw new NotImplementedException();
     }
 
     /// <summary>
@@ -69,7 +68,6 @@ public class Player : MonoBehaviour, IEntity
 
     public void Retreat()
     {
-        throw new NotImplementedException();
     }
 
     public EntityController Spawn(ChessBoardCell cell)
@@ -81,5 +79,13 @@ public class Player : MonoBehaviour, IEntity
         var entity = Instantiate(gameObject, cell.transform.position, Quaternion.identity);
 
         return entity.GetComponent<PlayerController>();
+    }
+    public float GetAfterAttackHealth(float damage)
+    {
+        return _currentHealth - damage;
+    }
+    public float GetStrength()
+    {
+        return Strength;
     }
 }

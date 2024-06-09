@@ -7,6 +7,9 @@ public interface IEntity
     void Create();
     EntityController Spawn(ChessBoardCell cell);
     void Kill();
-    void Attack();
+    void Attack(ChessBoardCell cell);
     void GetDamage(float damage);
+    void Retreat();
+    float GetAfterAttackHealth(float damage);
+    float GetStrength();
 }

@@ -9,7 +9,7 @@ public class HorseController : ChessPieceController
 
     }
 
-    protected override void Retreat()
+    public override void MakeMove(PlayerController player)
     {
 
     }

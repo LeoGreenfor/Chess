@@ -10,6 +10,7 @@ public class ChessPiece : MonoBehaviour, IEntity
     [SerializeField] private float attackStreght;
     [SerializeField] private float deathDelay;
 
+    public ChessBoardCell CurrentCell;
     public int CurrentX;
     public int CurrentY;
 
@@ -26,6 +27,11 @@ public class ChessPiece : MonoBehaviour, IEntity
         _player = player;
     }
 
+    public void Retreat()
+    {
+
+    }
+
     public void Kill()
     {
         StartCoroutine(DeathCooldown());
@@ -39,6 +45,7 @@ public class ChessPiece : MonoBehaviour, IEntity
     public EntityController Spawn(ChessBoardCell cell)
     {
         _currentHealth = fullHealth;
+        CurrentCell = cell;
         CurrentX = cell.CellToIntCoordinates()[0];
         CurrentY = cell.CellToIntCoordinates()[1];
         var chesspieceRotation = new Quaternion(0, 180, 0, 0);
@@ -48,14 +55,23 @@ public class ChessPiece : MonoBehaviour, IEntity
         return entity.GetComponent<ChessPieceController>();
     }
 
-    public void Attack()
+    public void Attack(ChessBoardCell cell)
     {
-        //Player.Instance.GetDamage(attackStreght);
+        _player.GetDamage(attackStreght);
     }
 
     public void GetDamage(float damage)
     {
         _currentHealth =- damage;
-        onGettingDamage?.Invoke();
+        if (_currentHealth <= 0) onGettingDamage?.Invoke();
+    }
+    public float GetAfterAttackHealth(float damage)
+    {
+        return _currentHealth - damage;
+    }
+
+    public float GetStrength()
+    {
+        return attackStreght;
     }
 }

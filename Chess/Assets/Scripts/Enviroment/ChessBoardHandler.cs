@@ -29,7 +29,7 @@ public class ChessBoardHandler : MonoBehaviour
     private void Start()
     {
         OnGameStateChange += SetBeginGame;
-        OnPlayerMakeMove += MakeMove;
+        OnPlayerMakeMove += BeginMove;
 
         _boardSideToInt = GameManager.Instance.MainChessSideIndex;
 
@@ -57,8 +57,6 @@ public class ChessBoardHandler : MonoBehaviour
 
         if (IsGameBegin)
         {
-            SetChessPieces();
-
             var entity = chessPlayerControllerPrefab.SpawnEntity(rows[0].cells[1]);
             chessPlayer = entity.GetComponent<PlayerController>();
             
@@ -66,6 +64,9 @@ public class ChessBoardHandler : MonoBehaviour
             player.UpdateLevel(_levelNumber);
             chessPlayer.CreateEntity(player);
             chessPlayer.SetCurrentCell(rows[0].cells[1]);
+
+
+            SetChessPieces();
         }
     }
 
@@ -74,34 +75,98 @@ public class ChessBoardHandler : MonoBehaviour
         int piecesCount = WinsCounts + 1;
         int index = rows.Length - 1;
         piecesOnBoard = new ChessPieceController[piecesCount];
+        EntityController entity;
 
         for (int i = 0; i < piecesCount; i++)
         {
             if (i % 2 == 0) 
             {
-                var entity = piecesPrefabs[_levelNumber].SpawnEntity(rows[index].cells[i]);
-                piecesOnBoard[i] = entity as ChessPieceController;
-                piecesOnBoard[i].SetCurrentCell(rows[index].cells[i]);
+                entity = piecesPrefabs[_levelNumber].SpawnEntity(rows[index].cells[i]);
             }
             else
             {
-                var entity = piecesPrefabs[_levelNumber + 1].SpawnEntity(rows[index].cells[i]);
-                piecesOnBoard[i] = entity as ChessPieceController;
-                piecesOnBoard[i].SetCurrentCell(rows[index].cells[i]);
+                entity = piecesPrefabs[_levelNumber + 1].SpawnEntity(rows[index].cells[i]);
             }
-            
+
+            piecesOnBoard[i] = entity as ChessPieceController;
+            piecesOnBoard[i].SetCurrentCell(rows[index].cells[i]);
+            piecesOnBoard[i].CreateEntity(chessPlayer.Entity as Player);
         }
     }
 
     private void MovePlayer(ChessBoardCell newPlayerPosition)
     {
-        chessPlayer.SetOnTurn(true);
+        chessPlayer.SetIsOnTurn(true);
+        chessPlayer.CurrentCell.IsOccupied = false;
+
+        if (!chessPlayer.CurrentCell.Equals(newPlayerPosition))
+            OnPlayerMakeMove?.Invoke();
+
         chessPlayer.MoveTo(newPlayerPosition);
-        OnPlayerMakeMove?.Invoke();
     }
 
-    private void MakeMove()
+    private void BeginMove()
     {
+        StartCoroutine(MakeMove());
+    }
+
+    private IEnumerator MakeMove()
+    {
+        yield return new WaitForSeconds(2f);
+        // find nearest chess piece
+        /*var minDistance = Vector3.Distance(chessPlayer.transform.position, piecesOnBoard[0].transform.position);
+        var nearestPiece = piecesOnBoard[0];
+
+        for (int i = 0;i < piecesOnBoard.Length; i++)
+        {
+            var distance = Vector3.Distance(chessPlayer.transform.position, piecesOnBoard[i].transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestPiece = piecesOnBoard[i];
+            }
+        }*/
+
+        // find chess piece that can move to player
+        ChessPieceController chessPiece = piecesOnBoard[0];
+        bool isCanMakeMove = piecesOnBoard[0].IsCorrectCoordinates(chessPlayer.CurrentCell);
+
+        for (int i = 0; i < piecesOnBoard.Length; i++)
+        {
+            if (piecesOnBoard[i].IsCorrectCoordinates(chessPlayer.CurrentCell))
+            {
+                chessPiece = piecesOnBoard[i];
+                isCanMakeMove = true;
+                Debug.LogError(chessPiece.ToString());
+                break;
+            }
+        }
+
+        // if there is any - make move, otherwise - just move
+        if (isCanMakeMove || chessPlayer.IsCorrectCoordinates(chessPiece.CurrentCell))
+        {
+            Debug.LogError("make move");
+            chessPiece.SetIsOnTurn(true);
+            chessPiece.MakeMove(chessPlayer);
+        }
+        else
+        {
+            for (int i = 0; i < rows.Length; i++)
+            {
+                bool isFindCoordinates = false;
+                for (int j = 0; j < rows[i].cells.Length; j++)
+                    if (chessPiece.IsCorrectCoordinates(rows[i].cells[j]) && !rows[i].cells[j].IsOccupied)
+                    {
+                        Debug.LogError("move to 1");
+                        chessPiece.SetIsOnTurn(true);
+                        chessPiece.CurrentCell.IsOccupied = false;
+                        chessPiece.MoveTo(rows[i].cells[j]);
+                        isFindCoordinates = true;
+                        break;
+                    }
+                if (isFindCoordinates) break;
+            }
+        }
 
     }
 
