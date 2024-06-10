@@ -16,14 +16,16 @@ public class ChessPieceController : EntityController
     {
         base.CreateEntity(player);
         gameObject.GetComponent<ChessPiece>().SetPlayer(player);
+
+        Entity.Create();
     }
 
     public override void MakeMove(PlayerController player)
     {
         // if player can kill -> retreat
         // else -> attack
-        if (player.IsCorrectCoordinates(CurrentCell) && (Entity.GetAfterAttackHealth(player.Entity.GetStrength()) <= 0f)) Entity.Retreat();
-        else Entity.Attack(player.CurrentCell);
+        if (Entity.GetAfterAttackHealth(player.Entity.GetStrength()) <= 0f) Entity.Retreat();
+        else Entity.Attack(player.Entity);
 
         base.MakeMove(player);
     }

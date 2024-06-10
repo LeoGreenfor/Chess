@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChessPiece : MonoBehaviour, IEntity
 {
@@ -10,9 +12,12 @@ public class ChessPiece : MonoBehaviour, IEntity
     [SerializeField] private float attackStreght;
     [SerializeField] private float deathDelay;
 
-    public ChessBoardCell CurrentCell;
-    public int CurrentX;
-    public int CurrentY;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private Image attackImage;
+    [SerializeField] private TMP_Text damageText;
+
+    public bool IsRetreating;
+    public Action OnRetreating;
 
     private float _currentHealth;
     private Action onGettingDamage;
@@ -21,6 +26,9 @@ public class ChessPiece : MonoBehaviour, IEntity
     public void Create()
     {
         onGettingDamage += Kill;
+
+        _currentHealth = fullHealth;
+        healthBar.fillAmount = 1;
     }
     public void SetPlayer(Player player)
     {
@@ -29,7 +37,8 @@ public class ChessPiece : MonoBehaviour, IEntity
 
     public void Retreat()
     {
-
+        IsRetreating = true;
+        Debug.LogError("run");
     }
 
     public void Kill()
@@ -44,10 +53,6 @@ public class ChessPiece : MonoBehaviour, IEntity
 
     public EntityController Spawn(ChessBoardCell cell)
     {
-        _currentHealth = fullHealth;
-        CurrentCell = cell;
-        CurrentX = cell.CellToIntCoordinates()[0];
-        CurrentY = cell.CellToIntCoordinates()[1];
         var chesspieceRotation = new Quaternion(0, 180, 0, 0);
 
         var entity = Instantiate(gameObject, cell.transform.position, chesspieceRotation);
@@ -55,23 +60,44 @@ public class ChessPiece : MonoBehaviour, IEntity
         return entity.GetComponent<ChessPieceController>();
     }
 
-    public void Attack(ChessBoardCell cell)
+    public void Attack(IEntity player)
     {
-        _player.GetDamage(attackStreght);
+        IsRetreating = false;
+        attackImage.gameObject.SetActive(true);
+        player.GetDamage(attackStreght);
+
+        StartCoroutine(SetActivaCooldown(attackImage.gameObject));
+    }
+    private IEnumerator SetActivaCooldown(GameObject obj)
+    {
+        yield return new WaitForSeconds(1f); 
+        obj.SetActive(false);
     }
 
     public void GetDamage(float damage)
     {
-        _currentHealth =- damage;
+        _currentHealth -= damage;
+
+        damageText.text = "-" + damage;
+        damageText.gameObject.SetActive(true);
+        StartCoroutine(SetActivaCooldown(damageText.gameObject));
+
+        Debug.LogError(_currentHealth / fullHealth);
+        healthBar.fillAmount = (_currentHealth / fullHealth) * 1f;
+
         if (_currentHealth <= 0) onGettingDamage?.Invoke();
     }
+
     public float GetAfterAttackHealth(float damage)
     {
         return _currentHealth - damage;
     }
-
     public float GetStrength()
     {
         return attackStreght;
+    }
+    public float GetCurrentHealth()
+    {
+        return _currentHealth;
     }
 }

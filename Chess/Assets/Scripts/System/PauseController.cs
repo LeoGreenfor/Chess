@@ -14,6 +14,9 @@ public class PauseController : MonoBehaviour
     [SerializeField] private Button _goToMenuButton;
     [SerializeField] private Canvas canvas;
 
+    private CursorLockMode cursorLockMode;
+    private bool cursorVisible;
+
     private void Start()
     {
         _resumeButton.onClick.AddListener(ResumeGame);
@@ -37,6 +40,9 @@ public class PauseController : MonoBehaviour
 
     public void PauseGame()
     {
+        cursorLockMode = Cursor.lockState;
+        cursorVisible = Cursor.visible;
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         gameIsPaused = true;
@@ -47,8 +53,8 @@ public class PauseController : MonoBehaviour
     {
         gameIsPaused = false;
         OnPause?.Invoke(false);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = cursorVisible;
+        Cursor.lockState = cursorLockMode;
         Time.timeScale = 1;
     }
     public void GoToMenu()

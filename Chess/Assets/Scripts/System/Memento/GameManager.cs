@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     public Action OnMatchEnd;
 
     private ChessBoardHandler _chessBoardHandler;
+    private PlayerMovementController _playerMovementController;
 
     private void Start()
     {
@@ -54,7 +55,8 @@ public class GameManager : Singleton<GameManager>
 
     private void StartMatch()
     {
-        var player = FindFirstObjectByType<PlayerMovementController>().GetComponent<Player>();
+        _playerMovementController = FindFirstObjectByType<PlayerMovementController>();
+        var player = _playerMovementController.GetComponent<Player>();
         
         PlayerData.SetStats(player.FullHealth, player.Strength, player.Defence, player.gameObject.transform);
 
@@ -73,8 +75,7 @@ public class GameManager : Singleton<GameManager>
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        var player = FindFirstObjectByType<PlayerMovementController>();
-        player.gameObject.SetActive(true);
+        _playerMovementController.gameObject.SetActive(true);
 
         SaveGame(PlayerData);
     }

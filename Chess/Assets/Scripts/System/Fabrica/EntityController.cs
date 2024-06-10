@@ -44,7 +44,6 @@ public abstract class EntityController : MonoBehaviour
 
     public virtual void MoveTo(ChessBoardCell newCell)
     {
-        Debug.LogError(Entity);
         if (isOnTurn)
         {
             bool isInRadius = IsCorrectCoordinates(newCell);
@@ -52,11 +51,10 @@ public abstract class EntityController : MonoBehaviour
             if (isInRadius)
             {
                 StartCoroutine(MoveToPosition(newCell.transform.position, moveTime));
-                CurrentCell = newCell;
+                CurrentCell.IsOccupied = false;
+                SetCurrentCell(newCell);
                 SetIsOnTurn(false);
             }
-
-            newCell.IsOccupied = true;
         }
     }
     private IEnumerator MoveToPosition(Vector3 newPosition, float time)
@@ -77,6 +75,10 @@ public abstract class EntityController : MonoBehaviour
     public void SetIsOnTurn(bool value)
     {
         isOnTurn = value;
+    }
+    public bool GetIsOnTurn()
+    {
+        return isOnTurn;
     }
 
     public int[] CorrectCoordinates(int borderNumber, int borderLetter)
@@ -108,6 +110,18 @@ public abstract class EntityController : MonoBehaviour
     }
     public bool IsCorrectCoordinates(ChessBoardCell newCell)
     {
+        bool isInRadius = IsInRadius(newCell);
+
+        /*Debug.LogError($"new cell {newCell}, current cell {CurrentCell};\n" +
+            $"is in radius x {isInRadiusX}, is in radius y {isInRadiusY}");*/
+
+        if (newCell == CurrentCell) isInRadius = false;
+
+        return isInRadius;
+    }
+
+    public bool IsInRadius(ChessBoardCell newCell)
+    {
         int currentX = CurrentCell.CellToIntCoordinates()[0];
         int currentY = CurrentCell.CellToIntCoordinates()[1];
 
@@ -131,11 +145,6 @@ public abstract class EntityController : MonoBehaviour
         }
         else if (isInRadiusX && isInRadiusY && isMoveByDiagonal)
             isInRadius = true;
-
-        /*Debug.LogError($"new cell {newCell}, current cell {CurrentCell};\n" +
-            $"is in radius x {isInRadiusX}, is in radius y {isInRadiusY}");*/
-
-        if (newCell == CurrentCell) isInRadius = false;
 
         return isInRadius;
     }

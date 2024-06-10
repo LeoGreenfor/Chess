@@ -44,8 +44,6 @@ public class ChessBoardHandler : MonoBehaviour
 
         for (int i = 0; i < chessPieces.Length; i++)
         {
-            Debug.LogError($"chessPieces.Length: {chessPieces.Length}, pieces.Length: {piecesPrefabs.Length}, i: {i}, " +
-                $"have controller: {chessPieces[i].GetComponent<ChessPieceController>()}");
             piecesPrefabs[i] = chessPieces[i].GetComponent<ChessPieceController>();
         }
         
@@ -102,43 +100,44 @@ public class ChessBoardHandler : MonoBehaviour
             piecesOnBoard[i] = entityController as ChessPieceController;
             piecesOnBoard[i].SetCurrentCell(rows[index].cells[i]);
             piecesOnBoard[i].CreateEntity(chessPlayer.Entity as Player);
+
+            var entity = piecesOnBoard[i].Entity as ChessPiece;
         }
     }
 
     private void MovePlayer(ChessBoardCell newPlayerPosition)
     {
-        chessPlayer.CurrentCell.IsOccupied = false;
+        if (!chessPlayer.CurrentCell.Equals(newPlayerPosition) && chessPlayer.GetIsOnTurn())
+        {
+            bool isAttacking = false;
 
-        if (!chessPlayer.CurrentCell.Equals(newPlayerPosition))
-            OnPlayerMakeMove?.Invoke();
+            for (int i = 0; i < piecesOnBoard.Length; i++)
+            {
+                if (piecesOnBoard[i].IsInRadius(newPlayerPosition) && newPlayerPosition.IsOccupied)
+                {
+                    isAttacking = true;
+                    chessPlayer.Entity.Attack(piecesOnBoard[i].Entity);
+                    OnPlayerMakeMove?.Invoke();
+                    break;
+                }
+            }
 
-        chessPlayer.MoveTo(newPlayerPosition);
+            if (!isAttacking && !newPlayerPosition.IsOccupied)
+            {
+                chessPlayer.MoveTo(newPlayerPosition);
+                OnPlayerMakeMove?.Invoke();
+            }
+        }
     }
 
     private void BeginMove()
     {
         StartCoroutine(MakeMove());
-
-        PlayerInfo.text = chessPlayer.GetComponent<Player>().GetPlayerInfo();
-        BoardInfo.text = GetBoardInfo();
     }
 
     private IEnumerator MakeMove()
     {
         yield return new WaitForSeconds(2f);
-        // find nearest chess piece
-        /*var minDistance = Vector3.Distance(chessPlayer.transform.position, piecesOnBoard[0].transform.position);
-        var nearestPiece = piecesOnBoard[0];
-
-        for (int i = 0;i < piecesOnBoard.Length; i++)
-        {
-            var distance = Vector3.Distance(chessPlayer.transform.position, piecesOnBoard[i].transform.position);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                nearestPiece = piecesOnBoard[i];
-            }
-        }*/
 
         // find chess piece that can move to player
         ChessPieceController chessPiece = piecesOnBoard[0];
@@ -150,7 +149,6 @@ public class ChessBoardHandler : MonoBehaviour
             {
                 chessPiece = piecesOnBoard[i];
                 isCanMakeMove = true;
-                Debug.LogError(chessPiece.ToString());
                 break;
             }
         }
@@ -161,16 +159,26 @@ public class ChessBoardHandler : MonoBehaviour
             Debug.LogError("make move");
             chessPiece.SetIsOnTurn(true);
             chessPiece.MakeMove(chessPlayer);
+
+            var entity = chessPiece.Entity as ChessPiece;
+            if (entity.IsRetreating)
+            {
+                Debug.LogError("a");
+                chessPiece.SetIsOnTurn(true);
+                chessPiece.MoveTo(FindUnoccupiedCell(chessPiece));
+            }
         }
         else
         {
             chessPiece.SetIsOnTurn(true);
-            chessPiece.CurrentCell.IsOccupied = false;
             chessPiece.MoveTo(FindUnoccupiedCell(chessPiece));
-
         }
 
+        Debug.LogError(chessPiece.GetComponent<ChessPiece>().GetCurrentHealth());
         chessPlayer.SetIsOnTurn(true);
+
+        PlayerInfo.text = chessPlayer.GetComponent<Player>().GetPlayerInfo();
+        BoardInfo.text = GetBoardInfo();
     }
 
     private ChessBoardCell FindUnoccupiedCell(ChessPieceController chessPiece)
@@ -190,7 +198,6 @@ public class ChessBoardHandler : MonoBehaviour
                         && (rows[i].cells[j].CellToIntCoordinates()[1] == newCoo[1])
                         && !rows[i].cells[j].IsOccupied)
                     {
-                        Debug.LogError(rows[i].cells[j]);
                         chessBoardCell = rows[i].cells[j];
                         isFindCoordinates = true;
                         break;

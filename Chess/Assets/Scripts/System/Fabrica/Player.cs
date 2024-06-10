@@ -13,13 +13,14 @@ public class Player : MonoBehaviour, IEntity
     public int Level { get; private set; }
 
     private float _currentHealth;
-    public int CurrentX;
-    public int CurrentY;
     private Action onGettingDamage;
+    private float _deathDelay = 2f;
 
-    public void Attack(ChessBoardCell cell)
+    public void Attack(IEntity piece)
     {
+        piece.GetDamage(Strength);
     }
+
     public string GetPlayerInfo()
     {
         var levelName = "";
@@ -68,17 +69,25 @@ public class Player : MonoBehaviour, IEntity
 
     public void Destroy()
     {
-        throw new NotImplementedException();
     }
 
     public void GetDamage(float damage)
     {
-        throw new NotImplementedException();
+        _currentHealth -= damage - (damage * Defence * .1f);
+
+        if (_currentHealth <= 0) Kill();
     }
 
     public void Kill()
     {
-        throw new NotImplementedException();
+        StartCoroutine(DeathCooldown());
+    }
+    private IEnumerator DeathCooldown()
+    {
+        yield return new WaitForSeconds(_deathDelay);
+
+        GameManager.Instance.OnMatchEnd?.Invoke();
+        Destroy(this.gameObject);
     }
 
     public void Retreat()
@@ -88,8 +97,6 @@ public class Player : MonoBehaviour, IEntity
     public EntityController Spawn(ChessBoardCell cell)
     {
         _currentHealth = FullHealth;
-        CurrentX = cell.CellToIntCoordinates()[0];
-        CurrentY = cell.CellToIntCoordinates()[1];
 
         var entity = Instantiate(gameObject, cell.transform.position, Quaternion.identity);
 
