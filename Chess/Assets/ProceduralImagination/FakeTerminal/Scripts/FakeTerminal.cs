@@ -42,6 +42,7 @@ public class FakeTerminal : MonoBehaviour
     public Vector3 terminal_PoVOffset;
     public float terminal_ActivationTransitionSpeed;
     public float terminal_ShutDownTransitionSpeed;
+    public Image TurnOffImage;
 
     [Space]
 
@@ -257,7 +258,7 @@ public class FakeTerminal : MonoBehaviour
                 }
             }
 
-        if((isUseKeyToShutDown || !logged) && Input.GetKeyDown(key_ShutDown) && terminalIsRunning)
+        if(isUseKeyToShutDown && Input.GetKeyDown(key_ShutDown) && terminalIsRunning)
         {
             ShutdownTerminal();
         }
@@ -286,6 +287,9 @@ public class FakeTerminal : MonoBehaviour
         {
             player_CharController.enabled = true;
         }
+
+        TurnOffImage.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     //----//
@@ -507,6 +511,8 @@ public class FakeTerminal : MonoBehaviour
 
     IEnumerator TerminalStart()
     {
+        TurnOffImage.gameObject.SetActive(false);
+
         outputText = new List<string>();
 
         foreach(string line in text_Intro)

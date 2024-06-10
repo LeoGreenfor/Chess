@@ -13,6 +13,7 @@ public class MenuLaptopController : MenuController
 
     private void OnMouseDown()
     {
+        terminal.gameObject.SetActive(true);
         terminal.TurnOn(true);        
     }
 
