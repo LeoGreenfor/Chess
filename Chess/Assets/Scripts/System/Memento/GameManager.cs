@@ -60,7 +60,7 @@ public class GameManager : Singleton<GameManager>
 
         SaveGame(PlayerData);
 
-        player.GetComponent<PlayerMovementController>().MainCamera.enabled = false;
+        player.gameObject.SetActive(false);
         _chessBoardHandler.OnGameStateChange?.Invoke(true);
 
         Cursor.visible = true;
@@ -73,8 +73,8 @@ public class GameManager : Singleton<GameManager>
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        var player = FindFirstObjectByType<PlayerMovementController>().GetComponent<Player>();
-        player.GetComponent<PlayerMovementController>().MainCamera.enabled = true;
+        var player = FindFirstObjectByType<PlayerMovementController>();
+        player.gameObject.SetActive(true);
 
         SaveGame(PlayerData);
     }

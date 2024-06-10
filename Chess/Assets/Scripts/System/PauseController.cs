@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,17 +8,31 @@ using UnityEngine.UI;
 public class PauseController : MonoBehaviour
 {
     public static bool gameIsPaused;
+    public Action <bool> OnPause;
 
-    [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _resumeButton;
     [SerializeField] private Button _goToMenuButton;
-    //[SerializeField] private UIController UIController;
+    [SerializeField] private Canvas canvas;
 
     private void Start()
     {
-        _pauseButton.onClick.AddListener(PauseGame);
         _resumeButton.onClick.AddListener(ResumeGame);
         _goToMenuButton.onClick.AddListener(GoToMenu);
+
+        OnPause += ShowMenuCanvas;
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+    }
+
+    private void ShowMenuCanvas(bool state)
+    {
+        canvas.gameObject.SetActive(state);
     }
 
     public void PauseGame()
@@ -25,15 +40,13 @@ public class PauseController : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         gameIsPaused = true;
-        //UIController.pause.SetActive(true);
-        //UIController.letterBackground.gameObject.SetActive(true);
+        OnPause?.Invoke(true);
         Time.timeScale = 0;
     }
     public void ResumeGame()
     {
         gameIsPaused = false;
-        //UIController.pause.SetActive(false);
-        //UIController.letterBackground.gameObject.SetActive(false);
+        OnPause?.Invoke(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;

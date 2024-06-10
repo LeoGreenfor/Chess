@@ -22,13 +22,14 @@ public abstract class EntityController : MonoBehaviour
     public virtual EntityController SpawnEntity(ChessBoardCell cell)
     {
         var entity = Entity.Spawn(cell);
-        CurrentCell = cell;
+        SetCurrentCell(cell);
 
         return entity;
     }
     public void SetCurrentCell(ChessBoardCell cell)
     {
         CurrentCell = cell;
+        CurrentCell.IsOccupied = true;
     }
 
     public virtual void CreateEntity(Player player)

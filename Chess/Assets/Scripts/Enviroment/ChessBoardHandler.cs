@@ -78,6 +78,7 @@ public class ChessBoardHandler : MonoBehaviour
             PlayerInfo.text = chessPlayer.GetComponent<Player>().GetPlayerInfo();
             BoardInfo.text = GetBoardInfo();
         }
+        chessPlayer.SetIsOnTurn(true);
     }
 
     private void SetChessPieces()
@@ -85,20 +86,20 @@ public class ChessBoardHandler : MonoBehaviour
         int piecesCount = WinsCounts + 1;
         int index = rows.Length - 1;
         piecesOnBoard = new ChessPieceController[piecesCount];
-        EntityController entity;
+        EntityController entityController;
 
         for (int i = 0; i < piecesCount; i++)
         {
             if (i % 2 == 0) 
             {
-                entity = piecesPrefabs[_levelNumber - 1].SpawnEntity(rows[index].cells[i]);
+                entityController = piecesPrefabs[_levelNumber - 1].SpawnEntity(rows[index].cells[i]);
             }
             else
             {
-                entity = piecesPrefabs[_levelNumber].SpawnEntity(rows[index].cells[i]);
+                entityController = piecesPrefabs[_levelNumber].SpawnEntity(rows[index].cells[i]);
             }
 
-            piecesOnBoard[i] = entity as ChessPieceController;
+            piecesOnBoard[i] = entityController as ChessPieceController;
             piecesOnBoard[i].SetCurrentCell(rows[index].cells[i]);
             piecesOnBoard[i].CreateEntity(chessPlayer.Entity as Player);
         }
@@ -106,7 +107,6 @@ public class ChessBoardHandler : MonoBehaviour
 
     private void MovePlayer(ChessBoardCell newPlayerPosition)
     {
-        chessPlayer.SetIsOnTurn(true);
         chessPlayer.CurrentCell.IsOccupied = false;
 
         if (!chessPlayer.CurrentCell.Equals(newPlayerPosition))
@@ -164,21 +164,34 @@ public class ChessBoardHandler : MonoBehaviour
         }
         else
         {
+            chessPiece.SetIsOnTurn(true);
+            chessPiece.CurrentCell.IsOccupied = false;
+            chessPiece.MoveTo(FindUnoccupiedCell(chessPiece));
+
+        }
+
+        chessPlayer.SetIsOnTurn(true);
+    }
+
+    private ChessBoardCell FindUnoccupiedCell(ChessPieceController chessPiece)
+    {
+        bool isFindCoordinates = false;
+        ChessBoardCell chessBoardCell = null;
+
+        while (!isFindCoordinates)
+        {
             var newCoo = chessPiece.CorrectCoordinates(rows.Length, rows[0].cells.Length);
-            
+
             for (int i = 0; i < rows.Length; i++)
             {
-                bool isFindCoordinates = false;
                 for (int j = 0; j < rows[i].cells.Length; j++)
                 {
-                    if ((rows[i].cells[j].CellToIntCoordinates()[0] == newCoo[0]) 
-                        && (rows[i].cells[j].CellToIntCoordinates()[1] == newCoo[1]) 
+                    if ((rows[i].cells[j].CellToIntCoordinates()[0] == newCoo[0])
+                        && (rows[i].cells[j].CellToIntCoordinates()[1] == newCoo[1])
                         && !rows[i].cells[j].IsOccupied)
                     {
                         Debug.LogError(rows[i].cells[j]);
-                        chessPiece.SetIsOnTurn(true);
-                        chessPiece.CurrentCell.IsOccupied = false;
-                        chessPiece.MoveTo(rows[i].cells[j]);
+                        chessBoardCell = rows[i].cells[j];
                         isFindCoordinates = true;
                         break;
                     }
@@ -186,10 +199,9 @@ public class ChessBoardHandler : MonoBehaviour
 
                 if (isFindCoordinates) break;
             }
-
-
         }
-
+        
+        return chessBoardCell;
     }
 
     private string GetBoardInfo()

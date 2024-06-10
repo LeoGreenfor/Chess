@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.74
-    - _NoiseRotationSpeed: 0.001
+    - _NoiseRotationSpeed: 0.01
     - _Power: 3
     - _QueueControl: 0
     - _QueueOffset: 0
