@@ -49,8 +49,9 @@ public class ChessPiece : MonoBehaviour, IEntity
     private IEnumerator DeathCooldown()
     {
         yield return new WaitForSeconds(deathDelay);
-        
+
         _isKilled = true;
+        gameObject.SetActive(false);
     }
 
     public EntityController Spawn(ChessBoardCell cell)

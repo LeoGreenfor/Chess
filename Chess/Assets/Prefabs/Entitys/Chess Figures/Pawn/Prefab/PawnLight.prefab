@@ -100,10 +100,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHealth: 7
   attackStreght: 2
-  deathDelay: 0
+  deathDelay: 2
   healthBar: {fileID: 4698645910917787468}
   attackImage: {fileID: 5368281716128179000}
   damageText: {fileID: 5503221996461596683}
+  IsRetreating: 0
 --- !u!114 &-8843568371324355602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentCell: {fileID: 0}
+  isKilled: 0
   goToX: 1
   goToY: 1
   isMoveByStraight: 1
