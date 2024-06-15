@@ -9,6 +9,7 @@ public abstract class EntityController : MonoBehaviour
     public IEntity Entity;
 
     public ChessBoardCell CurrentCell;
+    public bool isKilled;
 
     [Header("Movements")]
     [SerializeField] protected int goToX;

@@ -22,6 +22,7 @@ public class ChessPiece : MonoBehaviour, IEntity
     private float _currentHealth;
     private Action onGettingDamage;
     private Player _player;
+    private bool _isKilled;
 
     public void Create()
     {
@@ -48,7 +49,8 @@ public class ChessPiece : MonoBehaviour, IEntity
     private IEnumerator DeathCooldown()
     {
         yield return new WaitForSeconds(deathDelay);
-        Destroy(this.gameObject);
+        
+        _isKilled = true;
     }
 
     public EntityController Spawn(ChessBoardCell cell)
@@ -99,5 +101,10 @@ public class ChessPiece : MonoBehaviour, IEntity
     public float GetCurrentHealth()
     {
         return _currentHealth;
+    }
+
+    public bool IsKilled()
+    {
+        return _isKilled;
     }
 }

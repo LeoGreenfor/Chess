@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IEntity
 {
+    bool IsKilled();
     void Create();
     EntityController Spawn(ChessBoardCell cell);
     void Kill();

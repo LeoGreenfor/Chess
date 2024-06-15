@@ -689,8 +689,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 211904013}
+  - component: {fileID: 211904014}
   m_Layer: 0
-  m_Name: Level Generator System
+  m_Name: Level Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -712,6 +713,25 @@ Transform:
   m_Father: {fileID: 1499629525}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211904014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211904012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0f7ddfd57cef547b056cf3e2b8525f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelNumber: 1
+  LevelName: Wheet Field
+  ChessBoardHandler: {fileID: 881788197}
+  PlayerMovementController: {fileID: 450111613107055117}
+  MatchStartTriggers: []
+  delaySeconds: 10
+  LevelEndController: {fileID: 0}
 --- !u!1001 &276861809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2349,6 +2369,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 881788195}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &881788197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6533823618124423893, guid: 9c61493e91c116447933c7dcbc4accac,
+    type: 3}
+  m_PrefabInstance: {fileID: 881788195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b70865f39074474fa36f97839864a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &935701067
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,6 +4669,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc8d8f4b8ad913148ba0579f80a34f46, type: 3}
+--- !u!114 &450111613107055117 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5671146422674557840, guid: cc8d8f4b8ad913148ba0579f80a34f46,
+    type: 3}
+  m_PrefabInstance: {fileID: 450111613107055116}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28117763309dca549a10a6fa5da89948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &467737488680667520
 Transform:
   m_ObjectHideFlags: 0

@@ -27,14 +27,14 @@ public class ChessBoardHandler : MonoBehaviour
     public Action OnPlayerMakeMove;
 
     public bool IsGameBegin {  get; private set; }
-    public int WinsCounts;
 
     private int _levelNumber;
+    private string _levelName;
     private int _boardSideToInt;
 
     private void Start()
     {
-        OnGameStateChange += SetBeginGame;
+        OnGameStateChange += SetGameState;
         OnPlayerMakeMove += BeginMove;
 
         _boardSideToInt = GameManager.Instance.MainChessSideIndex;
@@ -54,7 +54,7 @@ public class ChessBoardHandler : MonoBehaviour
                 rows[i].cells[j].OnPlayerMove += MovePlayer;
     }
 
-    private void SetBeginGame(bool state)
+    private void SetGameState(bool state)
     {
         IsGameBegin = state;
         boardCamera.gameObject.SetActive(IsGameBegin);
@@ -75,13 +75,22 @@ public class ChessBoardHandler : MonoBehaviour
 
             PlayerInfo.text = chessPlayer.GetComponent<Player>().GetPlayerInfo();
             BoardInfo.text = GetBoardInfo();
+
+            chessPlayer.SetIsOnTurn(true);
         }
-        chessPlayer.SetIsOnTurn(true);
+        else
+        {
+            for (int i = 0;i < piecesOnBoard.Length; i++)
+                Destroy(piecesOnBoard[i].gameObject);
+
+            piecesOnBoard = new ChessPieceController[0];
+            Destroy(chessPlayer.gameObject);
+        }
     }
 
     private void SetChessPieces()
     {
-        int piecesCount = WinsCounts + 1;
+        int piecesCount = GameManager.Instance.LevelHandler.WinsCounts + 1;
         int index = rows.Length - 1;
         piecesOnBoard = new ChessPieceController[piecesCount];
         EntityController entityController;
@@ -140,7 +149,12 @@ public class ChessBoardHandler : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // find chess piece that can move to player
-        ChessPieceController chessPiece = piecesOnBoard[0];
+        ChessPieceController chessPiece = null;
+        for (int i = 0; i < piecesOnBoard.Length; i++)
+            if (!piecesOnBoard[i].Entity.IsKilled()) chessPiece = piecesOnBoard[i];
+
+        if (chessPiece is null) GameManager.Instance.OnMatchEnd?.Invoke(true);
+
         bool isCanMakeMove = piecesOnBoard[0].IsCorrectCoordinates(chessPlayer.CurrentCell);
 
         for (int i = 0; i < piecesOnBoard.Length; i++)
@@ -213,14 +227,9 @@ public class ChessBoardHandler : MonoBehaviour
 
     private string GetBoardInfo()
     {
-        var levelName = "";
-        if (_levelNumber == 1) levelName = "Wheat field";
-        if (_levelNumber == 2) levelName = "Forest";
-        if (_levelNumber == 3) levelName = "Old Castle";
-        if (_levelNumber == 4) levelName = "Enemy`s base";
-
-        return $"The board\nChess pieces left: {piecesOnBoard.Length}\nLevel name: {levelName}";
+        return $"The board\nChess pieces left: {piecesOnBoard.Length}\nLevel name: {_levelName}";
     }
+    public void SetLevelName(string levelName) => _levelName = levelName;
 
     [System.Serializable]
     private class BoardCells

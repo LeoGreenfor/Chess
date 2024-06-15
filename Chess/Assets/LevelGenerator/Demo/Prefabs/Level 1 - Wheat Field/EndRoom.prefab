@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 6914031863386007755}
   - component: {fileID: 2012793185415375663}
   - component: {fileID: 1966555315647909715}
+  - component: {fileID: -5752084542809834492}
   m_Layer: 0
   m_Name: EndRoom
   m_TagString: Untagged
@@ -363,6 +364,18 @@ MonoBehaviour:
   localPosition: {x: 0, y: 0, z: 2}
   radius: 3
   strength: 5
+--- !u!114 &-5752084542809834492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364969235788680432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23de2be228db83244ac99a0368a636f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1609808994121821945
 PrefabInstance:
   m_ObjectHideFlags: 0

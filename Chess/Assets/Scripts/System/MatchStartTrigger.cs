@@ -1,20 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MatchStartTrigger : MonoBehaviour
 {
-    [SerializeField] private bool isBeenActivated;
+    public Action OnBeginCooldown;
+    public Action<MatchStartTrigger> OnTriggerActive;
     [SerializeField] private float delaySeconds;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isBeenActivated)
-        {
-            GameManager.Instance.OnMatchStart?.Invoke();
-            isBeenActivated = true;
-            //StartCoroutine(CoolDown());
-        }
+        GameManager.Instance.OnMatchStart?.Invoke();
+        OnTriggerActive?.Invoke(this);
+
+        OnBeginCooldown += BeginCooldown;
+    }
+
+    private void BeginCooldown()
+    {
+        StartCoroutine(CoolDown());
     }
 
     private IEnumerator CoolDown()
@@ -23,7 +28,6 @@ public class MatchStartTrigger : MonoBehaviour
 
         yield return new WaitForSeconds(delaySeconds);
 
-        isBeenActivated = false;
         Debug.LogError("b");
     }
 

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour, IEntity
     private float _currentHealth;
     private Action onGettingDamage;
     private float _deathDelay = 2f;
+    private bool _isKilled;
 
     public void Attack(IEntity piece)
     {
@@ -86,8 +87,9 @@ public class Player : MonoBehaviour, IEntity
     {
         yield return new WaitForSeconds(_deathDelay);
 
-        GameManager.Instance.OnMatchEnd?.Invoke();
-        Destroy(this.gameObject);
+        _isKilled = true;
+        GameManager.Instance.OnMatchEnd(false);
+        gameObject.SetActive(false);
     }
 
     public void Retreat()
@@ -109,5 +111,9 @@ public class Player : MonoBehaviour, IEntity
     public float GetStrength()
     {
         return Strength;
+    }
+    public bool IsKilled()
+    {
+        return _isKilled;
     }
 }

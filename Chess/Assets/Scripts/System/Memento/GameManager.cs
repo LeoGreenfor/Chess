@@ -17,10 +17,9 @@ public class GameManager : Singleton<GameManager>
     public GameGeneralSettings generalSettings;
 
     public Action OnMatchStart;
-    public Action OnMatchEnd;
+    public Action<bool> OnMatchEnd;
 
-    private ChessBoardHandler _chessBoardHandler;
-    private PlayerMovementController _playerMovementController;
+    public LevelHandler LevelHandler;
 
     private void Start()
     {
@@ -30,9 +29,8 @@ public class GameManager : Singleton<GameManager>
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        _chessBoardHandler = FindFirstObjectByType<ChessBoardHandler>();
-        if (FindFirstObjectByType<Player>()) LoadGame();
-        Debug.LogError(PlayerSide.ToString() + " " + PlayerData.ToString() + " " + LastLevelNumber.ToString());
+        LevelHandler = FindFirstObjectByType<LevelHandler>();
+        if (!LevelHandler.Equals(null)) LoadGame();
     }
 
     public void SetPlayerSide(string playerSide)
@@ -55,27 +53,29 @@ public class GameManager : Singleton<GameManager>
 
     private void StartMatch()
     {
-        _playerMovementController = FindFirstObjectByType<PlayerMovementController>();
-        var player = _playerMovementController.GetComponent<Player>();
+        var player = LevelHandler.PlayerMovementController.GetComponent<Player>();
         
         PlayerData.SetStats(player.FullHealth, player.Strength, player.Defence, player.gameObject.transform);
 
         SaveGame(PlayerData);
 
-        player.gameObject.SetActive(false);
-        _chessBoardHandler.OnGameStateChange?.Invoke(true);
+        LevelHandler.PlayerMovementController.gameObject.SetActive(false);
+        LevelHandler.ChessBoardHandler.OnGameStateChange?.Invoke(true);
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
-    private void EndMatch()
+    private void EndMatch(bool isHaveWon)
     {
-        _chessBoardHandler.OnGameStateChange?.Invoke(false);
+        LevelHandler.OnEndMatch?.Invoke();
+        LevelHandler.ChessBoardHandler.OnGameStateChange?.Invoke(false);
+
+        if (isHaveWon) LevelHandler.WinsCounts++;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        _playerMovementController.gameObject.SetActive(true);
+        LevelHandler.PlayerMovementController.gameObject.SetActive(true);
 
         SaveGame(PlayerData);
     }
