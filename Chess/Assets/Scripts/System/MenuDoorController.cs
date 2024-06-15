@@ -6,4 +6,8 @@ using UnityEngine.EventSystems;
 
 public class MenuDoorController : MenuController
 {
+    private void OnMouseDown()
+    {
+        Application.Quit();
+    }
 }
