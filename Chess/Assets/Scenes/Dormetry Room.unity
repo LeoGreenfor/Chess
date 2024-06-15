@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0.77
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.06872552, g: 0.07411382, b: 0.31132078, a: 1}
+  m_SubtractiveShadowColor: {r: 0.16480953, g: 0.16937658, b: 0.4433962, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 135a7036ca1a07b4e9e162d80e6b6e77, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -2151,7 +2151,7 @@ GameObject:
   - component: {fileID: 343508704}
   - component: {fileID: 343508703}
   m_Layer: 8
-  m_Name: Lightning
+  m_Name: Lighting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4001,7 +4001,7 @@ ReflectionProbe:
   m_FarClip: 1000
   m_ShadowDistance: 100
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0.43794417, b: 1, a: 1}
+  m_BackGroundColor: {r: 0, g: 0.3206067, b: 1, a: 1}
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -6734,7 +6734,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: e98bed75022fcf441be2ed022becf9f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8042,7 +8042,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.74509805, g: 0.78431374, b: 1, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -8051,7 +8051,7 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.95
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -8084,7 +8084,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 3
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
