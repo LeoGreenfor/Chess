@@ -30,6 +30,7 @@ public class ChessPiece : MonoBehaviour, IEntity
 
         _currentHealth = fullHealth;
         healthBar.fillAmount = 1;
+        _isKilled = false;
     }
     public void SetPlayer(Player player)
     {
@@ -50,8 +51,8 @@ public class ChessPiece : MonoBehaviour, IEntity
     {
         yield return new WaitForSeconds(deathDelay);
 
+        _player.RestoreHealth(_player.FullHealth);
         _isKilled = true;
-        gameObject.SetActive(false);
     }
 
     public EntityController Spawn(ChessBoardCell cell)
@@ -69,9 +70,9 @@ public class ChessPiece : MonoBehaviour, IEntity
         attackImage.gameObject.SetActive(true);
         player.GetDamage(attackStreght);
 
-        StartCoroutine(SetActivaCooldown(attackImage.gameObject));
+        StartCoroutine(SetActiveCooldown(attackImage.gameObject));
     }
-    private IEnumerator SetActivaCooldown(GameObject obj)
+    private IEnumerator SetActiveCooldown(GameObject obj)
     {
         yield return new WaitForSeconds(1f); 
         obj.SetActive(false);
@@ -83,7 +84,7 @@ public class ChessPiece : MonoBehaviour, IEntity
 
         damageText.text = "-" + damage;
         damageText.gameObject.SetActive(true);
-        StartCoroutine(SetActivaCooldown(damageText.gameObject));
+        StartCoroutine(SetActiveCooldown(damageText.gameObject));
 
         Debug.LogError(_currentHealth / fullHealth);
         healthBar.fillAmount = (_currentHealth / fullHealth) * 1f;

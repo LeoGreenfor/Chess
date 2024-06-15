@@ -104,16 +104,8 @@ public class Player : MonoBehaviour, IEntity
 
         return entity.GetComponent<PlayerController>();
     }
-    public float GetAfterAttackHealth(float damage)
-    {
-        return _currentHealth - damage;
-    }
-    public float GetStrength()
-    {
-        return Strength;
-    }
-    public bool IsKilled()
-    {
-        return _isKilled;
-    }
+    public float GetAfterAttackHealth(float damage) => _currentHealth - damage;
+    public float GetStrength() => Strength;
+    public bool IsKilled() => _isKilled;
+    public void RestoreHealth(float health) => _currentHealth = health;
 }

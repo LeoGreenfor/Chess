@@ -12,7 +12,7 @@ public class ChessBoardHandler : MonoBehaviour
     [SerializeField] private BoardCells[] rows;
 
     [SerializeField] private ChessPieceController[] piecesPrefabs;
-    [SerializeField] private ChessPieceController[] piecesOnBoard;
+    [SerializeField] private List<ChessPieceController> piecesOnBoard;
 
     [SerializeField] private PlayerController chessPlayerControllerPrefab;
     [SerializeField] private PlayerController chessPlayer;
@@ -80,10 +80,10 @@ public class ChessBoardHandler : MonoBehaviour
         }
         else
         {
-            for (int i = 0;i < piecesOnBoard.Length; i++)
+            for (int i = 0;i < piecesOnBoard.Count; i++)
                 Destroy(piecesOnBoard[i].gameObject);
 
-            piecesOnBoard = new ChessPieceController[0];
+            piecesOnBoard = new List<ChessPieceController>();
             Destroy(chessPlayer.gameObject);
         }
     }
@@ -92,7 +92,7 @@ public class ChessBoardHandler : MonoBehaviour
     {
         int piecesCount = GameManager.Instance.LevelHandler.WinsCounts + 1;
         int index = rows.Length - 1;
-        piecesOnBoard = new ChessPieceController[piecesCount];
+        //piecesOnBoard = new List<ChessPieceController>(piecesCount);
         EntityController entityController;
 
         for (int i = 0; i < piecesCount; i++)
@@ -106,9 +106,11 @@ public class ChessBoardHandler : MonoBehaviour
                 entityController = piecesPrefabs[_levelNumber].SpawnEntity(rows[index].cells[i]);
             }
 
-            piecesOnBoard[i] = entityController as ChessPieceController;
-            piecesOnBoard[i].SetCurrentCell(rows[index].cells[i]);
-            piecesOnBoard[i].CreateEntity(chessPlayer.Entity as Player);
+            var chessPiece = entityController as ChessPieceController;
+            chessPiece.SetCurrentCell(rows[index].cells[i]);
+            chessPiece.CreateEntity(chessPlayer.Entity as Player);
+
+            piecesOnBoard.Add(chessPiece);
 
             var entity = piecesOnBoard[i].Entity as ChessPiece;
         }
@@ -120,7 +122,7 @@ public class ChessBoardHandler : MonoBehaviour
         {
             bool isAttacking = false;
 
-            for (int i = 0; i < piecesOnBoard.Length; i++)
+            for (int i = 0; i < piecesOnBoard.Count; i++)
             {
                 if (piecesOnBoard[i].IsInRadius(newPlayerPosition) && newPlayerPosition.IsOccupied)
                 {
@@ -149,21 +151,11 @@ public class ChessBoardHandler : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // find chess piece that can move to player
-        ChessPieceController chessPiece = null;
-        for (int i = 0; i < piecesOnBoard.Length; i++)
-            if (!piecesOnBoard[i].Entity.IsKilled())
-            {
-                chessPiece = piecesOnBoard[i];
-                break;
-            }
+        ChessPieceController chessPiece = piecesOnBoard[0];
 
-        if (chessPiece == null) GameManager.Instance.OnMatchEnd?.Invoke(true);
-        else
-        {
+        bool isCanMakeMove = piecesOnBoard[0].IsCorrectCoordinates(chessPlayer.CurrentCell);
 
-            bool isCanMakeMove = piecesOnBoard[0].IsCorrectCoordinates(chessPlayer.CurrentCell);
-
-            for (int i = 0; i < piecesOnBoard.Length; i++)
+            for (int i = 0; i < piecesOnBoard.Count; i++)
             {
                 if (piecesOnBoard[i].IsCorrectCoordinates(chessPlayer.CurrentCell))
                 {
@@ -180,12 +172,17 @@ public class ChessBoardHandler : MonoBehaviour
                 chessPiece.SetIsOnTurn(true);
                 chessPiece.MakeMove(chessPlayer);
 
-                var entity = chessPiece.Entity as ChessPiece;
-                if (entity.IsRetreating)
+                var chessPieceEntity = chessPiece.Entity as ChessPiece;
+                if (chessPieceEntity.IsRetreating)
                 {
                     Debug.LogError("a");
                     chessPiece.SetIsOnTurn(true);
                     chessPiece.MoveTo(FindUnoccupiedCell(chessPiece));
+                }
+                if (chessPieceEntity.IsKilled())
+                {
+                    chessPiece.CurrentCell.IsOccupied = false;
+                    chessPieceEntity.gameObject.SetActive(false);
                 }
             }
             else
@@ -196,10 +193,14 @@ public class ChessBoardHandler : MonoBehaviour
 
             Debug.LogError(chessPiece.GetComponent<ChessPiece>().GetCurrentHealth());
             chessPlayer.SetIsOnTurn(true);
-        }
 
         PlayerInfo.text = chessPlayer.GetComponent<Player>().GetPlayerInfo();
         BoardInfo.text = GetBoardInfo();
+
+
+        for (int i = 0; i < piecesOnBoard.Count; i++)
+            if (piecesOnBoard[i].Entity.IsKilled()) piecesOnBoard.RemoveAt(i);
+        if (piecesOnBoard.Count == 0) GameManager.Instance.OnMatchEnd?.Invoke(true);
     }
 
     private ChessBoardCell FindUnoccupiedCell(ChessPieceController chessPiece)
@@ -234,7 +235,7 @@ public class ChessBoardHandler : MonoBehaviour
 
     private string GetBoardInfo()
     {
-        return $"The board\nChess pieces left: {piecesOnBoard.Length}\nLevel name: {_levelName}";
+        return $"The board\nChess pieces left: {piecesOnBoard.Count}\nLevel name: {_levelName}";
     }
     public void SetLevelName(string levelName) => _levelName = levelName;
 
