@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
 
     public Action OnMatchStart;
     public Action<bool> OnMatchEnd;
+    public Action OnEnterNextLevel;
 
     public LevelHandler LevelHandler;
 
@@ -26,6 +27,7 @@ public class GameManager : Singleton<GameManager>
         SceneManager.sceneLoaded += OnSceneLoaded;
         OnMatchStart += StartMatch;
         OnMatchEnd += EndMatch;
+        OnEnterNextLevel += EnterNextLevel;
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -55,7 +57,9 @@ public class GameManager : Singleton<GameManager>
     {
         var player = LevelHandler.PlayerMovementController.GetComponent<Player>();
         
-        PlayerData.SetStats(player.FullHealth, player.Strength, player.Defence, player.gameObject.transform);
+        PlayerData.SetStats(LastLevelNumber, player.gameObject.transform);
+
+        Debug.LogError(player.Level);
 
         SaveGame(PlayerData);
 
@@ -77,6 +81,18 @@ public class GameManager : Singleton<GameManager>
 
         LevelHandler.PlayerMovementController.gameObject.SetActive(true);
 
+        SaveGame(PlayerData);
+    }
+
+    private void EnterNextLevel()
+    {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+         
+        SceneManager.LoadScene(nextSceneIndex);
+
+        if (nextSceneIndex > LastLevelNumber) LastLevelNumber = nextSceneIndex;
+
+        PlayerData.SetStats(LastLevelNumber);
         SaveGame(PlayerData);
     }
 
@@ -134,7 +150,7 @@ public class GameManager : Singleton<GameManager>
 
         var player = FindFirstObjectByType<PlayerMovementController>()?.GetComponent<Player>();
         PlayerData = memento.GetPlayer();
-        player?.SetStats(PlayerData.fullHealth, PlayerData.strength, PlayerData.defence, player.transform);
+        player?.SetStats(LastLevelNumber, player.transform);
 
         LastLevelNumber = memento.GetLastLevelNumber();
     }
@@ -200,9 +216,7 @@ public class PlayerData
     /// </summary>
     public PlayerData()
     {
-        fullHealth = 10f;
-        strength = 5f;
-        defence = 5f;
+        SetLevelStats(1);
 
         position[0] = 0f;
         position[1] = 0f;
@@ -212,14 +226,48 @@ public class PlayerData
     {
         return new PlayerData(player.FullHealth, player.Strength, player.Defence, player.transform);
     }
-    public void SetStats(float pFullHealth, float pStrength, float pDefence, Transform pTransform)
+    public void SetStats(int level)
     {
-        fullHealth = pFullHealth;
-        strength = pStrength;
-        defence = pDefence;
+        SetLevelStats(level);
+
+        position[0] = 0f;
+        position[1] = 0f;
+        position[2] = 0f;
+    }
+    public void SetStats(int level, Transform pTransform)
+    {
+        SetLevelStats(level);
 
         position[0] = pTransform.position.x;
         position[1] = pTransform.position.y;
         position[2] = pTransform.position.z;
+    }
+
+    private void SetLevelStats(int level)
+    {
+        if (level == 1)
+        {
+            fullHealth = 10f;
+            strength = 5;
+            defence = 5;
+        }
+        if (level == 2)
+        {
+            fullHealth = 25f;
+            strength = 10;
+            defence = 10;
+        }
+        if (level == 3)
+        {
+            fullHealth = 75f;
+            strength = 20;
+            defence = 15;
+        }
+        if (level == 4)
+        {
+            fullHealth = 100f;
+            strength = 25;
+            defence = 15;
+        }
     }
 }

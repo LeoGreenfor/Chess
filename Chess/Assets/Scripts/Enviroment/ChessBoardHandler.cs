@@ -85,6 +85,10 @@ public class ChessBoardHandler : MonoBehaviour
 
             piecesOnBoard = new List<ChessPieceController>();
             Destroy(chessPlayer.gameObject);
+
+            for (int i = 0; i < rows.Length; i++)
+                for (int j = 0; j < rows[i].cells.Length; j++)
+                    rows[i].cells[j].IsOccupied = false;
         }
     }
 

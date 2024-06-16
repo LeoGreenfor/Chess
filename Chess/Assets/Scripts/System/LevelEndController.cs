@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class LevelEndController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int neededWinsCount;
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        int winsCount = GameManager.Instance.LevelHandler.WinsCounts;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (winsCount == neededWinsCount) GameManager.Instance.OnEnterNextLevel?.Invoke();
     }
 }

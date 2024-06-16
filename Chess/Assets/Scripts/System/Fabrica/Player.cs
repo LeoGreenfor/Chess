@@ -10,7 +10,43 @@ public class Player : MonoBehaviour, IEntity
     public float FullHealth {  get; private set; }
     public float Strength { get; private set; }
     public float Defence { get; private set; }
-    public int Level { get; private set; }
+    public int Level {
+        get {  return _level; } 
+        private set 
+        {
+            _level = value;
+            if (_level == 1)
+            {
+                FullHealth = 10f;
+                Strength = 5;
+                Defence = 5;
+                _levelName = "Pawn";
+            }
+            if (_level == 2)
+            {
+                FullHealth = 25f;
+                Strength = 10;
+                Defence = 10;
+                _levelName = "Rook";
+            }
+            if (_level == 3)
+            {
+                FullHealth = 75f;
+                Strength = 20;
+                Defence = 15;
+                _levelName = "Bishop";
+            }
+            if (_level == 4)
+            {
+                FullHealth = 100f;
+                Strength = 25;
+                Defence = 15;
+                _levelName = "Queen";
+            }
+        }
+    }
+    private int _level;
+    private string _levelName;
 
     private float _currentHealth;
     private Action onGettingDamage;
@@ -24,14 +60,7 @@ public class Player : MonoBehaviour, IEntity
 
     public string GetPlayerInfo()
     {
-        var levelName = "";
-
-        if (Level == 1) levelName = "Pawn";
-        if (Level == 2) levelName = "Rook";
-        if (Level == 3) levelName = "Bishop";
-        if (Level == 4) levelName = "Queen";
-
-        return $"Level: {levelName}\nHealth: {_currentHealth}\nStrength: {Strength}";
+        return $"Level: {_levelName}\nHealth: {_currentHealth}\nStrength: {Strength}";
     }
 
     /// <summary>
@@ -39,28 +68,22 @@ public class Player : MonoBehaviour, IEntity
     /// </summary>
     public void Create()
     {
-        FullHealth = 10f;
-        Strength = 5f;
-        Defence = 5f;
         Level = 1;
     }
-    public void SetStats(float fullHealth, float strength, float defence, Transform transform)
+    public void SetStats(int level, Transform transform)
     {
-        FullHealth = fullHealth;
-        Strength = strength;
-        Defence = defence;
+        Level = level;
+
         gameObject.transform.position = transform.position;
         gameObject.transform.rotation = transform.rotation;
 
-        _currentHealth = fullHealth;
+        _currentHealth = FullHealth;
     }
-    public void SetStats(float fullHealth, float strength, float defence)
+    public void SetStats(int level)
     {
-        FullHealth = fullHealth;
-        Strength = strength;
-        Defence = defence;
+        Level = level;
 
-        _currentHealth = fullHealth;
+        _currentHealth = FullHealth;
     }
 
     public void UpdateLevel(int level)
@@ -108,4 +131,33 @@ public class Player : MonoBehaviour, IEntity
     public float GetStrength() => Strength;
     public bool IsKilled() => _isKilled;
     public void RestoreHealth(float health) => _currentHealth = health;
+
+    private void SetLevelStats(int level)
+    {
+        Level = level;
+        if (level == 1)
+        {
+            FullHealth = 10f;
+            Strength = 5;
+            Defence = 5;
+        }
+        if (level == 2)
+        {
+            FullHealth = 25f;
+            Strength = 10;
+            Defence = 10;
+        }
+        if (level == 3)
+        {
+            FullHealth = 75f;
+            Strength = 20;
+            Defence = 15;
+        }
+        if (level == 4)
+        {
+            FullHealth = 100f;
+            Strength = 25;
+            Defence = 15;
+        }
+    }
 }

@@ -20,7 +20,7 @@ public class PlayerController : EntityController
 
         if (playerLevel == 1)
         {
-            player.SetStats(10, 5, 5);
+            player.SetStats(1);
             goToX = 1;
             goToY = 1;
             isMoveByStraight = true;
@@ -28,31 +28,23 @@ public class PlayerController : EntityController
         }
         if (playerLevel == 2)
         {
-            player.SetStats(25, 10, 10);
+            player.SetStats(2);
             goToX = 4;
             goToY = 4;
             isMoveByStraight = true;
             isMoveByDiagonal = false;
         }
-        if (playerLevel == 3)
+        if (playerLevel == 3) 
         {
-            player.SetStats(50, 15, 10);
-            goToX = 2;
-            goToY = 2;
-            isMoveByStraight = true;
-            isMoveByDiagonal = false;
-        }
-        if (playerLevel == 4) 
-        {
-            player.SetStats(75, 20, 15);
+            player.SetStats(3);
             goToX = 4;
             goToY = 4;
             isMoveByStraight = false;
             isMoveByDiagonal = true;
         }
-        if (playerLevel == 5)
+        if (playerLevel == 4)
         {
-            player.SetStats(100, 25, 15);
+            player.SetStats(4);
             goToX = 4;
             goToY = 4;
             isMoveByStraight = true;

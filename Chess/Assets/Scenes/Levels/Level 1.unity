@@ -2341,61 +2341,6 @@ PrefabInstance:
       propertyPath: boardCamera
       value: 
       objectReference: {fileID: 556056282}
-    - target: {fileID: 6959250460706866251, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_fontColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_overflowMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_isRightToLeft
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203235907704061455, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_enableWordWrapping
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7585973834567113599, guid: 9c61493e91c116447933c7dcbc4accac,
         type: 3}
       propertyPath: m_RootOrder
@@ -2449,11 +2394,6 @@ PrefabInstance:
     - target: {fileID: 7585973834567113599, guid: 9c61493e91c116447933c7dcbc4accac,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8907593024508617843, guid: 9c61493e91c116447933c7dcbc4accac,
-        type: 3}
-      propertyPath: m_fontStyle
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4593,6 +4533,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2318335101208655668, guid: cc8d8f4b8ad913148ba0579f80a34f46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2635190016199410463, guid: cc8d8f4b8ad913148ba0579f80a34f46,
         type: 3}
       propertyPath: m_VolumeTrigger
