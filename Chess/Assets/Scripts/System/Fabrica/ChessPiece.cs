@@ -19,6 +19,7 @@ public class ChessPiece : MonoBehaviour, IEntity
     public bool IsRetreating;
     public Action OnRetreating;
 
+    private int _retreatingCount;
     private float _currentHealth;
     private Action onGettingDamage;
     private Player _player;
@@ -31,6 +32,7 @@ public class ChessPiece : MonoBehaviour, IEntity
         _currentHealth = fullHealth;
         healthBar.fillAmount = 1;
         _isKilled = false;
+        _retreatingCount = 0;
     }
     public void SetPlayer(Player player)
     {
@@ -39,7 +41,17 @@ public class ChessPiece : MonoBehaviour, IEntity
 
     public void Retreat()
     {
-        IsRetreating = true;
+        if (_retreatingCount < 3)
+        {
+            _retreatingCount++;
+            IsRetreating = true;
+        }
+        else
+        {
+            _retreatingCount = 0;
+            IsRetreating = false;
+            Attack(_player);
+        }
         Debug.LogError("run");
     }
 

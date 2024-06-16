@@ -24,7 +24,7 @@ public class ChessPieceController : EntityController
     {
         // if player can kill -> retreat
         // else -> attack
-        if (Entity.GetAfterAttackHealth(player.Entity.GetStrength()) <= 0f) ;// Entity.Retreat();
+        if (Entity.GetAfterAttackHealth(player.Entity.GetStrength()) <= 0f) Entity.Retreat();
         else Entity.Attack(player.Entity);
 
         base.MakeMove(player);
