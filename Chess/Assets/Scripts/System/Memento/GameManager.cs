@@ -1,10 +1,12 @@
 using Plugins.MissionCore.Core;
 using System;
+using System.Collections;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -21,6 +23,8 @@ public class GameManager : Singleton<GameManager>
     public Action OnEnterNextLevel;
 
     public LevelHandler LevelHandler;
+    public Image LoadingImage;
+    public int LoadingDelaySeconds;
 
     private void Start()
     {
@@ -31,8 +35,17 @@ public class GameManager : Singleton<GameManager>
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        LevelHandler = FindFirstObjectByType<LevelHandler>();
-        if (!LevelHandler.Equals(null)) LoadGame();
+        if (SceneManager.GetActiveScene().buildIndex > 0)
+        {
+            LevelHandler = FindFirstObjectByType<LevelHandler>();
+            if (!LevelHandler.Equals(null)) LoadGame();
+        }
+    }
+    private IEnumerator LoadingCooldown()
+    {
+        yield return new WaitForSeconds(LoadingDelaySeconds);
+
+        LoadingImage.gameObject.SetActive(false);
     }
 
     public void SetPlayerSide(string playerSide)

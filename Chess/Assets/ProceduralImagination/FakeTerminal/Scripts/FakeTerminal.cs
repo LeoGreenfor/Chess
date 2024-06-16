@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Unity.VisualScripting;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class FakeTerminal : MonoBehaviour
 {
@@ -169,8 +170,7 @@ public class FakeTerminal : MonoBehaviour
 
     void Start()
     {
-
-        if(admin_Password == "") // Default admin_Password is 12345.
+        if (admin_Password == "") // Default admin_Password is 12345.
         {
             admin_Password = "12345"; // It's also the combination on my luggage... https://www.youtube.com/watch?v=a6iW-8xPw3k
         }
@@ -204,7 +204,7 @@ public class FakeTerminal : MonoBehaviour
 
     void LateUpdate()
     {
-        if(admin_RequestLogin)
+        if (admin_RequestLogin)
         {
             isUseKeyToShutDown = true;
         }
@@ -289,6 +289,7 @@ public class FakeTerminal : MonoBehaviour
         }
 
         TurnOffImage.gameObject.SetActive(true);
+        _isTurnOn = false;
         gameObject.SetActive(false);
     }
 
@@ -756,6 +757,7 @@ public class FakeTerminal : MonoBehaviour
     public void TurnOn(bool value)
     {
         _isTurnOn = value;
+        if (!_isTurnOn) ShutdownTerminal();
     }
 
     [System.Serializable] 

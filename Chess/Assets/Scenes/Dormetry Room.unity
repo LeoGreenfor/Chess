@@ -5561,6 +5561,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8090101214214043323, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 26405076}
+    - target: {fileID: 8090101214214043323, guid: 6d765bc02f6764e43a99ddf8c802fbfb,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1627320792964964206, guid: 6d765bc02f6764e43a99ddf8c802fbfb, type: 3}
@@ -14734,6 +14744,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051721610060736133, guid: d844e98b18d848f4d826c4f0831255c9,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490350661447509118, guid: d844e98b18d848f4d826c4f0831255c9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6401601008941050254, guid: d844e98b18d848f4d826c4f0831255c9,
         type: 3}
