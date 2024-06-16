@@ -16029,7 +16029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objOutline: {fileID: 6694689120613361439}
-  _eventCanvas: {fileID: 0}
+  _eventCanvas: {fileID: 1821838640}
   terminal: {fileID: 228107941}
   delaySeconds: 1
 --- !u!65 &6694689120613361441

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LevelGenerator.Scripts.Structure
+namespace LevelGeneratorRelated.Scripts.Structure
 {
     [Serializable]
     public class TagRule

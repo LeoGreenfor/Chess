@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LevelGenerator.Scripts.Exceptions
+namespace LevelGeneratorRelated.Scripts.Exceptions
 {
     public class InvalidRuleDeclarationException : Exception
     {

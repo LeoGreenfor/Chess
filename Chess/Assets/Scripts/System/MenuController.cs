@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public abstract class MenuController : MonoBehaviour
 {
     [SerializeField] private Outline _objOutline;
-    [SerializeField] private GameObject _eventCanvas;
+    [SerializeField] protected GameObject _eventCanvas;
 
     public void OnMouseExit()
     {

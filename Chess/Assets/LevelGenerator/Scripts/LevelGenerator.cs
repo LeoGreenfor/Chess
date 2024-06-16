@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using LevelGenerator.Scripts.Exceptions;
-using LevelGenerator.Scripts.Helpers;
-using LevelGenerator.Scripts.Structure;
+using LevelGeneratorRelated.Scripts.Exceptions;
+using LevelGeneratorRelated.Scripts.Helpers;
+using LevelGeneratorRelated.Scripts.Structure;
 using UnityEngine;
 
-namespace LevelGenerator.Scripts
+namespace LevelGeneratorRelated.Scripts
 {
     public class LevelGenerator : MonoBehaviour
     {
@@ -58,6 +59,7 @@ namespace LevelGenerator.Scripts
         protected List<Collider> DeadEndColliders = new List<Collider>();
         protected bool HalfLevelBuilt => registeredSections.Count > LevelSize;
 
+        public Action OnCreatedLevel;
         protected void Start()
         {
             if (Seed != 0)
@@ -69,6 +71,9 @@ namespace LevelGenerator.Scripts
             LevelSize = MaxLevelSize;
             CreateInitialSection();
             DeactivateBounds();
+
+            Debug.LogError("a");
+            OnCreatedLevel?.Invoke();
         }
 
         protected void CheckRuleIntegrity()

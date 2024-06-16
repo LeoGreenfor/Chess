@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using LevelGenerator.Scripts.Helpers;
+using LevelGeneratorRelated.Scripts.Helpers;
 using UnityEngine;
 
-namespace LevelGenerator.Scripts
+namespace LevelGeneratorRelated.Scripts
 {
     public class Section : MonoBehaviour
     {

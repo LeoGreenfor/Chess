@@ -38,6 +38,8 @@ public class GameManager : Singleton<GameManager>
         {
             LevelHandler = FindFirstObjectByType<LevelHandler>();
             if (!LevelHandler.Equals(null)) LoadGame();
+
+            Debug.LogError(PlayerSide.Equals(null) + " " + PlayerData.Equals(null) + " " + LastLevelNumber.Equals(null));
         }
     }
 
@@ -120,7 +122,6 @@ public class GameManager : Singleton<GameManager>
     }
     public Memento Save()
     {
-        Debug.LogError(PlayerSide.Equals(null) + " " + PlayerData.Equals(null) + " " + LastLevelNumber.Equals(null));
         return new Memento(PlayerSide, PlayerData, LastLevelNumber);
     }
 

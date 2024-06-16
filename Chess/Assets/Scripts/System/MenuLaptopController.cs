@@ -47,6 +47,7 @@ public class MenuLaptopController : MenuController
     private IEnumerator LoadingCooldown(int sceneIndex)
     {
         yield return new WaitForSeconds(delaySeconds);
+        _eventCanvas.SetActive(true);
         SceneManager.LoadScene(sceneIndex);
     }
 }
