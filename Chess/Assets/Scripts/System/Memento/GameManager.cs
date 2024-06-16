@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -23,8 +24,6 @@ public class GameManager : Singleton<GameManager>
     public Action OnEnterNextLevel;
 
     public LevelHandler LevelHandler;
-    public Image LoadingImage;
-    public int LoadingDelaySeconds;
 
     private void Start()
     {
@@ -40,12 +39,6 @@ public class GameManager : Singleton<GameManager>
             LevelHandler = FindFirstObjectByType<LevelHandler>();
             if (!LevelHandler.Equals(null)) LoadGame();
         }
-    }
-    private IEnumerator LoadingCooldown()
-    {
-        yield return new WaitForSeconds(LoadingDelaySeconds);
-
-        LoadingImage.gameObject.SetActive(false);
     }
 
     public void SetPlayerSide(string playerSide)
@@ -137,7 +130,7 @@ public class GameManager : Singleton<GameManager>
         BinaryFormatter formatter = new BinaryFormatter();
         string filePath = Path.Combine(Application.persistentDataPath, generalSettings.SaveGameFilePath);
 
-        if (File.Exists(filePath))
+        if (System.IO.File.Exists(filePath))
         {
             using (FileStream stream = new FileStream(filePath, FileMode.Open))
             {
