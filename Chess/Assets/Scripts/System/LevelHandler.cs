@@ -17,7 +17,7 @@ public class LevelHandler : MonoBehaviour
     public MatchStartTrigger[] MatchStartTriggers;
     [SerializeField] private float delaySeconds;
     public LevelEndController LevelEndController;
-    public LevelGenerator LevelGenerator;
+    //public LevelGenerator LevelGenerator;
 
     public Action OnEndMatch;
     public Action OnLevelLoad;
@@ -28,12 +28,13 @@ public class LevelHandler : MonoBehaviour
     {
         OnEndMatch += BeginCooldown;
         ChessBoardHandler.SetLevelName(LevelName);
-        LevelGenerator.OnCreatedLevel += SetTriggers;
+        SetTriggers();
+        //LevelGenerator.OnCreatedLevel += SetTriggers;
     }
     private void SetTriggers()
     {
-        MatchStartTriggers = GetComponentsInChildren<MatchStartTrigger>();
-        LevelEndController = GetComponentInChildren<LevelEndController>();
+        //MatchStartTriggers = GetComponentsInChildren<MatchStartTrigger>();
+        //LevelEndController = GetComponentInChildren<LevelEndController>();
 
         for (int i = 0; i < MatchStartTriggers.Length; i++)
         {
