@@ -490,6 +490,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8283059243233330527, guid: fb2f624b7d7178549baabb58eac6a8ca,
         type: 3}
+      propertyPath: MaxLevelSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283059243233330527, guid: fb2f624b7d7178549baabb58eac6a8ca,
+        type: 3}
+      propertyPath: MaxAllowedOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283059243233330527, guid: fb2f624b7d7178549baabb58eac6a8ca,
+        type: 3}
       propertyPath: SectionContainer
       value: 
       objectReference: {fileID: 211904013}
