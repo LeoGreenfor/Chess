@@ -303,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28214419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -200, y: 0, z: -200}
+  m_LocalPosition: {x: -500, y: 0, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28214419}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb257b300d8d9d748bf8d0eeb8190b52, type: 3}
   m_Name: 
@@ -491,18 +491,28 @@ PrefabInstance:
     - target: {fileID: 8283059243233330527, guid: fb2f624b7d7178549baabb58eac6a8ca,
         type: 3}
       propertyPath: MaxLevelSize
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8283059243233330527, guid: fb2f624b7d7178549baabb58eac6a8ca,
         type: 3}
       propertyPath: MaxAllowedOrder
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8283059243233330527, guid: fb2f624b7d7178549baabb58eac6a8ca,
         type: 3}
       propertyPath: SectionContainer
       value: 
       objectReference: {fileID: 211904013}
+    - target: {fileID: 8283059243233330527, guid: fb2f624b7d7178549baabb58eac6a8ca,
+        type: 3}
+      propertyPath: SpecialRules.Array.data[1].MaxAmount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283059243233330527, guid: fb2f624b7d7178549baabb58eac6a8ca,
+        type: 3}
+      propertyPath: SpecialRules.Array.data[2].MaxAmount
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

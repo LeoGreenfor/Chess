@@ -519,6 +519,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7495876041642005805, guid: fb2f624b7d7178549baabb58eac6a8ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8283059243233330527, guid: fb2f624b7d7178549baabb58eac6a8ca,
         type: 3}
       propertyPath: SectionContainer
@@ -740,7 +745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &962284189827066953
 Transform:
   m_ObjectHideFlags: 0

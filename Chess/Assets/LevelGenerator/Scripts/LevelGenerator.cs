@@ -81,7 +81,10 @@ namespace LevelGeneratorRelated.Scripts
             foreach (var ruleTag in SpecialRules.Select(r => r.Tag))
             {
                 if (SpecialRules.Count(r => r.Tag.Equals(ruleTag)) > 1)
+                {
+                    Debug.LogError($"{ruleTag}");
                     throw new InvalidRuleDeclarationException();
+                }
             }
         }
 
@@ -101,6 +104,8 @@ namespace LevelGeneratorRelated.Scripts
                 SpecialRules.First(r => newSection.Tags.Contains(r.Tag)).PlaceRuleSection();
 
             LevelSize--;
+
+            Debug.LogError($"{LevelSize}");
         }
 
         public void RegistrerNewDeadEnd(IEnumerable<Collider> colliders) => DeadEndColliders.AddRange(colliders);

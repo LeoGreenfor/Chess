@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469533204323588245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 10}
-  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_LocalPosition: {x: 0, y: 0.5, z: 25}
+  m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5155206729838091242}
@@ -156,8 +156,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3049217944151051488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 10}
-  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_LocalPosition: {x: 0, y: 0.5, z: 25}
+  m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6914031863386007755}
@@ -282,7 +282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5798177416143620515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -299,7 +299,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6914031863386007755}
   - component: {fileID: 2012793185415375663}
-  - component: {fileID: 1966555315647909715}
   - component: {fileID: -5752084542809834492}
   m_Layer: 0
   m_Name: EndRoom
@@ -341,27 +340,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tags:
+  - room
   - end
   CreatesTags:
   - corridor
   Exits: {fileID: 3403843321576069323}
   Bounds: {fileID: 1794637184134442595}
   DeadEndChance: 30
---- !u!114 &1966555315647909715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8364969235788680432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af95da0ba5b14044a99b36556a6e5b43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localPosition: {x: 0, y: 0, z: 2}
-  radius: 3
-  strength: 5
 --- !u!114 &-5752084542809834492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,17 +531,17 @@ PrefabInstance:
     - target: {fileID: 7942746373191032873, guid: 38e80406f81d2cd4db0986b686361fb3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.45
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7942746373191032873, guid: 38e80406f81d2cd4db0986b686361fb3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.45
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7942746373191032873, guid: 38e80406f81d2cd4db0986b686361fb3,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.45
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7942746373191032873, guid: 38e80406f81d2cd4db0986b686361fb3,
         type: 3}
@@ -571,7 +556,7 @@ PrefabInstance:
     - target: {fileID: 7942746373191032873, guid: 38e80406f81d2cd4db0986b686361fb3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7942746373191032873, guid: 38e80406f81d2cd4db0986b686361fb3,
         type: 3}

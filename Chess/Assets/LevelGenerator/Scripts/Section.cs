@@ -51,9 +51,9 @@ namespace LevelGeneratorRelated.Scripts
                 foreach (var e in Exits.ExitSpots)
                 {
                     if (LevelGenerator.LevelSize > 0 && order < LevelGenerator.MaxAllowedOrder)
-                        if (RandomService.RollD100(DeadEndChance))
+                        /*if (RandomService.RollD100(DeadEndChance))
                             PlaceDeadEnd(e);
-                        else
+                        else*/
                             GenerateSection(e);
                     else
                         PlaceDeadEnd(e);
@@ -73,7 +73,9 @@ namespace LevelGeneratorRelated.Scripts
             }
             else
             {
+                Debug.LogError($"{candidate.name} invalid");
                 Destroy(candidate.gameObject);
+                //GenerateSection(exit);
                 PlaceDeadEnd(exit);
             }
         }
