@@ -15,7 +15,6 @@ Material:
   m_ValidKeywords:
   - BOOLEAN_ALBEDOTEX_ON
   - BOOLEAN_GROUNDCOL_ON
-  - BOOLEAN_USEMESHNORMALS_ON
   - ENUM_TRANSFORM_TRANSFORM_MATRIX
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -66,7 +65,7 @@ Material:
     - BOOLEAN_BLADECOL: 0
     - BOOLEAN_DISPLACEMENT: 0
     - BOOLEAN_GROUNDCOL: 1
-    - BOOLEAN_USEMESHNORMALS: 1
+    - BOOLEAN_USEMESHNORMALS: 0
     - ENUM_TRANSFORM: 1
     - Vector1_BD8CCDF7: 0.5
     - _Height: 3
