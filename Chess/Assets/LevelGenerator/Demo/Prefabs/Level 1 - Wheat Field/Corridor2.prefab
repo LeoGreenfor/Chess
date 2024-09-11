@@ -479,6 +479,143 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: terrain
+      value: 
+      objectReference: {fileID: 15600000, guid: 2a60b26519826b4419099487969aef2c,
+        type: 2}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 719cb4055a9ec9141ae533dfc50ca1f6, type: 2}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: distSource
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: pointCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: chunkCount.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: chunkCount.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: grassBladeMesh
+      value: 
+      objectReference: {fileID: -2917872896436339451, guid: bf0cfd526bf24ba46a7906425164714b,
+        type: 3}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: multipleMeshes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: multipleMaterials
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: materials.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 719cb4055a9ec9141ae533dfc50ca1f6, type: 2}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 719cb4055a9ec9141ae533dfc50ca1f6, type: 2}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 719cb4055a9ec9141ae533dfc50ca1f6, type: 2}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: b618b95b3e2b7b34193375b30c13a185, type: 2}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: terrainLayers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: grassBladeMeshes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: terrainLayers.Array.data[0]
+      value: 
+      objectReference: {fileID: 8574412962073106934, guid: 2d5160a25e1606d4f824dd0cbe3612aa,
+        type: 2}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: meshDensityValues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: grassBladeMeshes.Array.data[0]
+      value: 
+      objectReference: {fileID: 4579454407841743219, guid: 87d061f8c5e816046b76bf29c9b6cb01,
+        type: 3}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: grassBladeMeshes.Array.data[1]
+      value: 
+      objectReference: {fileID: 6416302070336371891, guid: 87d061f8c5e816046b76bf29c9b6cb01,
+        type: 3}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: grassBladeMeshes.Array.data[2]
+      value: 
+      objectReference: {fileID: 6416302070336371891, guid: 87d061f8c5e816046b76bf29c9b6cb01,
+        type: 3}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: grassBladeMeshes.Array.data[3]
+      value: 
+      objectReference: {fileID: -7426583211642308163, guid: 002bf449675252849a29782b177a97f2,
+        type: 3}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: meshDensityValues.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: meshDensityValues.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: meshDensityValues.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679212910644908939, guid: 284cda6601db76e42a8cd7390baaea13,
+        type: 3}
+      propertyPath: meshDensityValues.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
